@@ -177,6 +177,9 @@ export default function HomePage() {
                 <h2 id="hovered-text">
                   Incredibly secure, with 2-factor authentication and a
                   multi-signature wallet.
+                  <br />
+                  <br />
+                  And protect your money with a multi-signature wallet.
                 </h2>
               </div>
               <div className="service-item-inner">
@@ -185,6 +188,7 @@ export default function HomePage() {
                   alt=""
                   width="168.478px"
                   height="221.858px"
+                  id="service-item-image"
                 />
               </div>
             </motion.div>
@@ -199,6 +203,9 @@ export default function HomePage() {
                 </h2>
                 <h2 id="hovered-text">
                   Accept local payment methods like QR codes and bank transfers.
+                  <br />
+                  <br />
+                  And protect your money with a multi-signature wallet.
                 </h2>
               </div>
               <div className="service-item-inner">
@@ -207,6 +214,7 @@ export default function HomePage() {
                   alt=""
                   width="168.352px"
                   height="221.024px"
+                  id="service-item-image"
                 />
               </div>
             </motion.div>
@@ -222,6 +230,9 @@ export default function HomePage() {
                 <h2 id="hovered-text">
                   Manage multiple currencies in one account, with real-time
                   exchange rates.
+                  <br />
+                  <br />
+                  And protect your money with a multi-signature wallet.
                 </h2>
               </div>
               <div className="service-item-inner">
@@ -230,6 +241,7 @@ export default function HomePage() {
                   alt=""
                   width="165.142px"
                   height="221.858px"
+                  id="service-item-image"
                 />
               </div>
             </motion.div>
@@ -242,6 +254,9 @@ export default function HomePage() {
                 <h2>Offline payment</h2>
                 <h2 id="hovered-text">
                   Pay offline with QR codes and NFC payments.
+                  <br />
+                  <br />
+                  And protect your money with a multi-signature wallet.
                 </h2>
               </div>
               <div className="service-item-inner">
@@ -250,6 +265,7 @@ export default function HomePage() {
                   alt=""
                   width="169.313px"
                   height="221.858px"
+                  id="service-item-image"
                 />
               </div>
             </motion.div>
@@ -354,7 +370,7 @@ export default function HomePage() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <div className="service-inverted-item-title-container">
-                  <h2>Enhanced security</h2>
+                  <h2>Early access to discounted forex rates </h2>
                   <h2 id="hovered-text">
                     Incredibly secure, with 2-factor authentication and a
                     multi-signature wallet.
@@ -362,10 +378,11 @@ export default function HomePage() {
                 </div>
                 <div className="service-inverted-item-inner">
                   <Image
-                    src={icLock}
+                    src={icPercentage}
                     alt=""
-                    width="168.478px"
-                    height="221.858px"
+                    width="118.129px"
+                    height="110.802px"
+                    id="service-item-image"
                   />
                 </div>
               </motion.div>
@@ -375,9 +392,7 @@ export default function HomePage() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <div className="service-inverted-item-title-container">
-                  <h2>
-                    Local Payment <br /> Methods
-                  </h2>
+                  <h2>Luxury vacation</h2>
                   <h2 id="hovered-text">
                     Accept local payment methods like QR codes and bank
                     transfers.
@@ -385,10 +400,11 @@ export default function HomePage() {
                 </div>
                 <div className="service-inverted-item-inner">
                   <Image
-                    src={icPayment}
+                    src={icHolidayTourism}
                     alt=""
-                    width="168.352px"
-                    height="221.024px"
+                    width="202px"
+                    height="265.199px"
+                    id="service-item-image"
                   />
                 </div>
               </motion.div>
@@ -398,9 +414,7 @@ export default function HomePage() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <div className="service-inverted-item-title-container">
-                  <h2>
-                    One account <br /> Multiple currencies
-                  </h2>
+                  <h2>Refer your buddy and earn cashback once we are live.</h2>
                   <h2 id="hovered-text">
                     Manage multiple currencies in one account, with real-time
                     exchange rates.
@@ -408,30 +422,11 @@ export default function HomePage() {
                 </div>
                 <div className="service-inverted-item-inner">
                   <Image
-                    src={icSmartphone}
+                    src={icMoney}
                     alt=""
-                    width="165.142px"
-                    height="221.858px"
-                  />
-                </div>
-              </motion.div>
-              <motion.div
-                className="service-inverted-item"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              >
-                <div className="service-inverted-item-title-container">
-                  <h2>Offline payment</h2>
-                  <h2 id="hovered-text">
-                    Pay offline with QR codes and NFC payments.
-                  </h2>
-                </div>
-                <div className="service-inverted-item-inner">
-                  <Image
-                    src={icSmartphone01}
-                    alt=""
-                    width="169.313px"
-                    height="221.858px"
+                    width="118.129px"
+                    height="118.129px"
+                    id="service-item-image"
                   />
                 </div>
               </motion.div>
