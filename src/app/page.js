@@ -6,6 +6,7 @@ import img01 from '../../public/images/img-01.png';
 import img02 from '../../public/images/img-02.png';
 import img03 from '../../public/images/img-03.png';
 import img04 from '../../public/images/img-04.png';
+import img05 from '../../public/images/img-05.png';
 import icLock from '../../public/images/ic-lock.png';
 import icPayment from '../../public/images/ic-payment.png';
 import icSmartphone from '../../public/images/ic-smartphone.png';
@@ -14,6 +15,12 @@ import icPhoneWHand from '../../public/images/ic-phoneWHand.svg';
 import icPercentage from '../../public/images/ic-percentage.svg';
 import icHolidayTourism from '../../public/images/ic-holiday-tourism.svg';
 import icMoney from '../../public/images/ic-money.svg';
+import icSecurity from '../../public/images/ic-security.svg';
+import icSecurityProtectionShield from '../../public/images/ic-security-protection-shield.svg';
+import icSecurityProtectionCardPayment from '../../public/images/ic-security-protection-card-payment.svg';
+import icSecurityProtectionFingerprint from '../../public/images/ic-security-protection-fingerprint.svg';
+import icSecurityProtectionHandShield from '../../public/images/ic-security-protection-hand-shield.svg';
+import icShield from '../../public/images/ic-shield.png';
 
 
 export default function HomePage() {
@@ -248,6 +255,115 @@ export default function HomePage() {
             </div>
         </div>
     </div>
+
+    <div>
+      <div className="flex justify-between gap-2 flex-md-col">
+          <div className="pt-20 pl-14 md-content flex-1">
+              <h1 className="text-blue font-bold h1-signup-heading lh-normal">Military <br />
+                  Grade Security</h1>
+              <p className="text-blue font-bold fs-6 lh-normal">Your Money, Your Rules. No One Else Can Touch It</p>
+              <button className="btn btn-primary mt-8">Sign Up Now</button>
+          </div>
+          <div className="relative flex-1">
+            <Image 
+                src={img05} 
+                alt="" 
+                className="md:w-full max-h-390 object-fill"
+                width={500} // Set appropriate width
+                height={300} // Set appropriate height
+            />
+\          </div>
+      </div>
+
+      <div className="flex items-center justify-center ">
+          <div className="bg-blue security-box relative">
+              <div className="left-security-box">
+                  <h3 className="h3-head text-white font-bold text-center">Trust & security form start to finish</h3>
+                  <p className="fs-14 text-white font-600 text-center">Your Money, Your Rules. No One Else Can Touch It</p>
+                  <div className="security-subbox flex gap-8 items-center justify-center flex-wrap">
+                      <div className="card flex flex-col gap-2 items-center">
+                          <div className="flex flex-col gap-2 items-center">
+                            <Image 
+                                src={icSecurity}
+                                alt=""
+                                width={41} // Set appropriate width
+                                height={40} // Set appropriate height
+                            />
+                              <h4 className="text-white font-600 fs-11">security management</h4>
+                          </div>
+                          <p className="text-white fs-7 mt-2">Lorem ipsum dolor sit amet, consectetur 
+                              adipiscing elit. Morbi facilisis</p>
+                      </div>
+                      <div className="card  flex flex-col gap-2 items-center">
+                          <div className="flex flex-col gap-2 items-center">
+                            <Image 
+                                src={icSecurityProtectionShield}
+                                alt=""
+                                width={41} // Set appropriate width
+                                height={40} // Set appropriate height
+                            />
+                              <h4 className="text-white font-600 fs-11">security management</h4>
+
+                          </div>
+                          <p className="text-white fs-7 mt-2">Lorem ipsum dolor sit amet, consectetur 
+                              adipiscing elit. Morbi facilisis</p>
+                      </div>
+                      <div className="card  flex flex-col gap-2 items-center">
+                          <div className="flex flex-col gap-2 items-center">
+                            <Image 
+                                src={icSecurityProtectionCardPayment}
+                                alt=""
+                                width={41} // Set appropriate width
+                                height={40} // Set appropriate height
+                            />
+                              <h4 className="text-white font-600 fs-11">security management</h4>
+
+                          </div>
+                          <p className="text-white fs-7 mt-2">Lorem ipsum dolor sit amet, consectetur 
+                              adipiscing elit. Morbi facilisis</p>
+                      </div>
+                      <div className="card  flex flex-col gap-2 items-center">
+                          <div className="flex flex-col gap-2 items-center">
+                          <Image 
+                                src={icSecurityProtectionFingerprint}
+                                alt=""
+                                width={41} // Set appropriate width
+                                height={40} // Set appropriate height
+                            />
+                              <h4 className="text-white font-600 fs-11">security management</h4>
+
+                          </div>
+                          <p className="text-white fs-7 mt-2">Lorem ipsum dolor sit amet, consectetur 
+                              adipiscing elit. Morbi facilisis</p>
+                      </div>
+                      <div className="card  flex flex-col gap-2 items-center">
+                          <div className="flex flex-col gap-2 items-center">
+                            <Image 
+                                src={icSecurityProtectionHandShield}
+                                alt=""
+                                width={41} // Set appropriate width
+                                height={40} // Set appropriate height
+                            />
+                              <h4 className="text-white font-600 fs-11">security management</h4>
+
+                          </div>
+                          <p className="text-white fs-7 mt-2">Lorem ipsum dolor sit amet, consectetur 
+                              adipiscing elit. Morbi facilisis</p>
+                      </div>
+                  </div>
+              </div>
+              <div className="ic-shield">
+                <Image 
+                  src={icShield}
+                  alt=""
+                  width={486} // Set appropriate width
+                  height={516} // Set appropriate height
+                />
+              </div>
+          </div>
+      </div>
+    </div>
+
 
     </>
 
