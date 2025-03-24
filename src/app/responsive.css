@@ -1,0 +1,130 @@
+@media (max-width: 768px) {
+    .flex-md-col{
+        flex-direction: column;
+    }
+    .md-card{
+        padding: 2rem;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: space-between;
+    }
+    
+    .md-content{
+        padding: 2rem 0 0;
+        text-align: center;
+    }
+
+    .footer{
+        padding:.5rem;
+    }
+    .h2-heading{
+        font-size: 2rem;
+        margin-right: .5rem;
+    }
+    .h3-heading{
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    .footer p{
+        font-size: 1rem;
+        line-height: 20px;
+    }
+    .h1-heading{
+        font-weight: 300;
+        font-size: 3rem;
+    }
+    .p-paragraph{
+        font-weight: 300;
+        font-size: 2rem;
+    }
+    .btn{
+        padding: .3rem 1rem;
+        font-size: 1rem;
+    }
+    .shadow{
+        display: block;
+        min-height: 86px;
+        width: 100%;
+        position: absolute;
+        background: rgb(255, 255, 255);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+    .ic-phoneWHand, .p-signup{
+        display: none;
+    }
+    .min-h-full{
+        min-height: fit-content;
+    }
+    .p-signup2{
+        display: block;
+    }
+    .md-signup-card{
+        gap: 0;
+        padding: .5rem;
+        justify-content: center;
+    }
+    .md-signup-card .blue-box{
+        width: 120px;
+    }
+    
+    .md-signup-card > div:nth-child(2), .img-pt-signup{
+        margin-top: 2rem;
+    }
+    .h1-signup-heading{
+        font-size: 3rem;
+    }
+    .md-borderless{
+        flex-direction: column;
+        gap: 4rem;
+    }
+    .md-borderless > div:nth-child(2){
+        order: 1;
+    }
+    .md-borderless > div:nth-child(1){
+        order: 2;
+    }
+    .ic-shield{
+        position: absolute;
+        right: -4rem;
+        top: initial;
+        bottom: -4rem;
+    }
+    .left-security-box{
+        max-width: 100%;
+    }
+    .card{
+        max-width: 100%;
+        width: 100%;
+    }
+    .security-box{
+        padding-bottom: 16rem;
+        margin-bottom: 4rem;
+        max-width: 65%;
+    }
+    .ic-shield img{
+        max-width: 300px;
+    }
+    .mob-space{
+        padding-top: 2rem;
+    }
+    .w-90{
+        width: 60%;
+    }
+    .ic-globe{
+        text-align: right;
+    }
+    .ic-globe img{
+        width: 60%;
+    }
+    .h1-mob-heading{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .h1-mob-heading br{display: none;}
+    .mt-mob-0{
+        margin-top: 0;
+    }
+}
