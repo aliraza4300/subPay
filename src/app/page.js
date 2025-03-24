@@ -4,6 +4,8 @@ import VideoBackground from "@/components/VideoBackground";
 import Image from 'next/image';
 import img01 from '../../public/images/img-01.png';
 import img02 from '../../public/images/img-02.png';
+import img03 from '../../public/images/img-03.png';
+import img04 from '../../public/images/img-04.png';
 import icLock from '../../public/images/ic-lock.png';
 import icPayment from '../../public/images/ic-payment.png';
 import icSmartphone from '../../public/images/ic-smartphone.png';
@@ -141,7 +143,7 @@ export default function HomePage() {
 
     </div>
 
-    <div className="bg-blue h-min-screen">
+    <div className="bg-blue h-min-screen hide">
       <div className="flex justify-between gap-2 flex-md-col min-h-full">
           <div className="pt-8 pl-14 md-content relative flex-1">
               <h1 className="text-white font-bold h1-signup-heading lh-normal">Sign up today <br />
@@ -215,6 +217,36 @@ export default function HomePage() {
               Chas back, and personalized content just for you
             Don't miss out—join us now!</p>
       </div>
+    </div>
+
+    <div className="h-full flex justify-between flex-col hide">
+
+        <div className="text-center mt-8">
+            <h1 className="text-blue font-bold h1-signup-heading lh-normal">Borderless pay </h1>
+            <p className="text-blue font-bold p-min-paragraph lh-normal">Send and receive money</p>
+            <button className="btn btn-primary mt-8">Sign Up Now</button>
+        </div>
+        
+        <div className="flex gap-2 mt-8 md-borderless">
+            <div className="flex-15">
+              <Image 
+                    src={img04} 
+                    alt="" 
+                    className="md:w-full max-h-390 object-fill"
+                    width={500} // Set appropriate width
+                    height={300} // Set appropriate height
+                />
+            </div>
+            <div className="flex-1">
+              <Image 
+                    src={img03} 
+                    alt="" 
+                    className="md:w-full max-h-390 object-fill"
+                    width={500} // Set appropriate width
+                    height={300} // Set appropriate height
+                />
+            </div>
+        </div>
     </div>
 
     </>
