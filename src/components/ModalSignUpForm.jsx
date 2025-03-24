@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "../styles/modal-signup-form.scss";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 function ModalSignUpForm({ isOpen = false, onClose = () => {} }) {
   if (!isOpen) return null;
@@ -66,112 +67,139 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {} }) {
   };
 
   return (
-    <div className="modal-form-overlay" onClick={handleOverlayClick}>
-      <div className="modal-signup-form-container">
-        <div className="modal-form-inner">
-          <Image
-            src="/images/online-payment.png"
-            alt="online-payment-img"
-            id="online-payment-img"
-            width={100}
-            height={100}
-          />
-          <button className="modal-close-button" onClick={onClose}>
-            ×
-          </button>
-          <h1 className="modal-form-title">
-            Get Early Access — Free to Join, with a Special Welcome Perk
-          </h1>
-          <p className="modal-form-text-1">9.981.230 People in line </p>
-
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="modal-form-input-container">
-              <input
-                type="email"
-                placeholder="Email"
-                disabled={loading}
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Invalid email address",
-                  },
-                })}
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div 
+          className="modal-form-overlay" 
+          onClick={handleOverlayClick}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.div 
+            className="modal-signup-form-container"
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 100, opacity: 0 }}
+            transition={{ 
+              type: "spring", 
+              damping: 25, 
+              stiffness: 300, 
+              duration: 0.4 
+            }}
+          >
+            <div className="modal-form-inner">
+              <Image
+                src="/images/online-payment.png"
+                alt="online-payment-img"
+                id="online-payment-img"
+                width={100}
+                height={100}
               />
-              {errors.email && (
-                <p className="error-message">{errors.email.message}</p>
-              )}
-              <button
-                type="submit"
-                className="modal-form-button"
-                disabled={loading}
-              >
-                {loading ? "Signing up..." : "Sign up Now"}
+              <button className="modal-close-button" onClick={onClose}>
+                ×
               </button>
+              <h1 className="modal-form-title">
+                Get Early Access — Free to Join, with a Special Welcome Perk
+              </h1>
+              <p className="modal-form-text-1">9.981.230 People in line </p>
+
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="modal-form-input-container">
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    disabled={loading}
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Invalid email address",
+                      },
+                    })}
+                  />
+                  {errors.email && (
+                    <p className="error-message">{errors.email.message}</p>
+                  )}
+                  <motion.button
+                    type="submit"
+                    className="modal-form-button"
+                    disabled={loading}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {loading ? "Signing up..." : "Sign up Now"}
+                  </motion.button>
+                </div>
+
+                {message && (
+                  <motion.div
+                    className={
+                      message.includes("Thank you")
+                        ? "success-message"
+                        : "error-message"
+                    }
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {message}
+                  </motion.div>
+                )}
+
+                <p className="modal-form-text-3">
+                  Are you signing up for Personal or Business use?
+                </p>
+
+                {/* Radio Buttons */}
+                <div className="modal-form-radio-btns-container">
+                  <div className="modal-form-radio-item">
+                    <input
+                      type="radio"
+                      {...register("userType")}
+                      id="modal-form-radio-1"
+                      value="personal"
+                      disabled={loading}
+                    />
+                    <label htmlFor="modal-form-radio-1">Personal</label>
+                  </div>
+                  <div className="modal-form-radio-item">
+                    <input
+                      type="radio"
+                      {...register("userType")}
+                      id="modal-form-radio-2"
+                      value="business"
+                      disabled={loading}
+                    />
+                    <label htmlFor="modal-form-radio-2">Business</label>
+                  </div>
+                </div>
+
+                {/* Terms & Conditions Checkbox */}
+                <div className="modal-form-checkbox-container">
+                  <input
+                    type="checkbox"
+                    {...register("termsAccepted", {
+                      required: "You must accept the terms",
+                    })}
+                    id="modal-form-checkbox-1"
+                    disabled={loading}
+                  />
+                  <label htmlFor="modal-form-checkbox-1">
+                    I confirm that I have read and accept the terms and conditions
+                    and privacy policy.
+                  </label>
+                  {errors.termsAccepted && (
+                    <p className="error-message">{errors.termsAccepted.message}</p>
+                  )}
+                </div>
+              </form>
             </div>
-
-            {message && (
-              <div
-                className={
-                  message.includes("Thank you")
-                    ? "success-message"
-                    : "error-message"
-                }
-              >
-                {message}
-              </div>
-            )}
-
-            <p className="modal-form-text-3">
-              Are you signing up for Personal or Business use?
-            </p>
-
-            {/* Radio Buttons */}
-            <div className="modal-form-radio-btns-container">
-              <div className="modal-form-radio-item">
-                <input
-                  type="radio"
-                  {...register("userType")}
-                  id="modal-form-radio-1"
-                  value="personal"
-                  disabled={loading}
-                />
-                <label htmlFor="modal-form-radio-1">Personal</label>
-              </div>
-              <div className="modal-form-radio-item">
-                <input
-                  type="radio"
-                  {...register("userType")}
-                  id="modal-form-radio-2"
-                  value="business"
-                  disabled={loading}
-                />
-                <label htmlFor="modal-form-radio-2">Business</label>
-              </div>
-            </div>
-
-            {/* Terms & Conditions Checkbox */}
-            <div className="modal-form-checkbox-container">
-              <input
-                type="checkbox"
-                {...register("termsAccepted", {
-                  required: "You must accept the terms",
-                })}
-                id="modal-form-checkbox-1"
-                disabled={loading}
-              />
-              <label htmlFor="modal-form-checkbox-1">
-                I confirm that I have read and accept the terms and conditions
-                and privacy policy.
-              </label>
-              {errors.termsAccepted && (
-                <p className="error-message">{errors.termsAccepted.message}</p>
-              )}
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 

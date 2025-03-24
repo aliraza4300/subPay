@@ -1,5 +1,5 @@
 .modal-signup-form-container {
-  position: fixed;
+  //   position: fixed;
   width: 90%;
   //   max-width: 600px;
   height: 90vh;
@@ -45,6 +45,8 @@
   display: flex;
   flex-direction: column;
   padding: 4rem;
+  position: relative;
+
 
   .modal-form-title {
     color: #222;
@@ -247,6 +249,26 @@
       margin: 0;
       text-align: left;
     }
+  }
+
+  .error-message {
+    color: #ff3333;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .success-message {
+    color: #4caf50;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    margin: 15px 0;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(76, 175, 80, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(76, 175, 80, 0.3);
   }
 }
 

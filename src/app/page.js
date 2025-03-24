@@ -50,9 +50,9 @@ export default function HomePage() {
 
   return (
     <div className="sections-container">
-      {true && (
+      {isModalOpen && (
         <ModalSignUpForm
-          isOpen={true}
+          isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
         />
       )}
@@ -115,7 +115,12 @@ export default function HomePage() {
             <p className="text-blue font-bold p-paragraph lh-normal">
               What you can do
             </p>
-            <button className="btn btn-primary mt-8">Sign Up Now</button>
+            <button
+              className="btn btn-primary mt-8 cursor-pointer"
+              onClick={() => setIsModalOpen(true)}
+            >
+              Sign Up Now
+            </button>
           </div>
           <div className="relative flex-1">
             {/* <div className="shadow"></div> */}
@@ -216,7 +221,12 @@ export default function HomePage() {
               Sign up today <br />
               Join the waitlist
             </h1>
-            <button className="btn btn-white mt-8">Sign Up Now</button>
+            <button
+              className="btn btn-white mt-8 cursor-pointer"
+              onClick={() => setIsModalOpen(true)}
+            >
+              Sign Up Now
+            </button>
 
             <p className="p-signup text-white">
               Sign up today and unlock exclusive benefits! Experience more
@@ -310,7 +320,10 @@ export default function HomePage() {
           <p className="text-blue font-bold p-min-paragraph lh-normal">
             Send and receive money
           </p>
-          <button className="btn btn-primary mt-8 cursor-pointer">
+          <button
+            className="btn btn-primary mt-8 cursor-pointer"
+            onClick={() => setIsModalOpen(true)}
+          >
             Sign Up Now
           </button>
         </div>
