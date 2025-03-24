@@ -7,6 +7,7 @@ import img02 from '../../public/images/img-02.png';
 import img03 from '../../public/images/img-03.png';
 import img04 from '../../public/images/img-04.png';
 import img05 from '../../public/images/img-05.png';
+import img06 from '../../public/images/img-06.png';
 import icLock from '../../public/images/ic-lock.png';
 import icPayment from '../../public/images/ic-payment.png';
 import icSmartphone from '../../public/images/ic-smartphone.png';
@@ -21,6 +22,7 @@ import icSecurityProtectionCardPayment from '../../public/images/ic-security-pro
 import icSecurityProtectionFingerprint from '../../public/images/ic-security-protection-fingerprint.svg';
 import icSecurityProtectionHandShield from '../../public/images/ic-security-protection-hand-shield.svg';
 import icShield from '../../public/images/ic-shield.png';
+import icGlobe from '../../public/images/ic-globe.png';
 
 
 export default function HomePage() {
@@ -256,7 +258,7 @@ export default function HomePage() {
         </div>
     </div>
 
-    <div>
+    <div className="hide">
       <div className="flex justify-between gap-2 flex-md-col">
           <div className="pt-20 pl-14 md-content flex-1">
               <h1 className="text-blue font-bold h1-signup-heading lh-normal">Military <br />
@@ -361,6 +363,36 @@ export default function HomePage() {
                 />
               </div>
           </div>
+      </div>
+    </div>
+
+    <div className="bg-blue h-min-screen">
+      <div class="flex justify-between gap-2 flex-md-col pt-20 mob-space">
+          <div class="relative flex-1">
+            <Image 
+                src={img06} 
+                alt="" 
+                className="w-90 max-h-390 object-fill"
+                width={500} // Set appropriate width
+                height={300} // Set appropriate height
+            />
+          </div>
+          <div class="pt-20 pl-14 md-content text-center flex-1">
+              <h1 class="text-white font-bold  h1-heading h1-mob-heading lh-normal lh-66">Limitless Global <br /> Access</h1>
+              <p class="text-white fs-6 lh-normal mt-4 mt-mob-0">Sign Up in Seconds No Paperwork, <br />
+                  No Hassle, Just Instant Access!</p>
+              <button class="btn btn-white mt-8">Sign Up Now</button>
+          </div>
+      </div>
+
+      <div class="ic-globe">
+        <Image 
+            src={icGlobe} 
+            alt="" 
+            className=""
+            width={500} // Set appropriate width
+            height={300} // Set appropriate height
+        />
       </div>
     </div>
 
