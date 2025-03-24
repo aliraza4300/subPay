@@ -1,3 +1,4 @@
+"use client";
 import EarlySignUpForm from "@/components/EarlySignUpForm";
 import "../styles/home-page.scss";
 import VideoBackground from "@/components/VideoBackground";
@@ -15,12 +16,47 @@ import icPercentage from "../../public/images/ic-percentage.svg";
 import icHolidayTourism from "../../public/images/ic-holiday-tourism.svg";
 import icMoney from "../../public/images/ic-money.svg";
 import "../styles/global.scss";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
+  const [currentSection, setCurrentSection] = useState(0);
+  const { scrollY } = useScroll();
+  const sections = [0, 1, 2, 3]; // Number of sections
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const sectionIndex = Math.round(scrollPosition / windowHeight);
+
+      if (
+        sectionIndex !== currentSection &&
+        sectionIndex >= 0 &&
+        sectionIndex < sections.length
+      ) {
+        setCurrentSection(sectionIndex);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [currentSection]);
+
+  const springConfig = { damping: 20, stiffness: 100 };
+  const y = useSpring(scrollY, springConfig);
+
   return (
-    <>
-      <main className="home-page-container hide">
+    <div className="sections-container">
+      <motion.main
+        className="section home-page-container"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{
+          opacity: currentSection === 0 ? 1 : 0,
+          y: currentSection === 0 ? 0 : -100,
+        }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="home-page-inner">
           <div className="logo-container">
             <h2 className="logo-text">BrahmPay</h2>
@@ -50,9 +86,17 @@ export default function HomePage() {
             <EarlySignUpForm />
           </div>
         </div>
-      </main>
+      </motion.main>
 
-      <div className="flex flex-col justify-between w-full h-full hide">
+      <motion.div
+        className="section flex flex-col justify-between w-full h-full"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{
+          opacity: currentSection === 1 ? 1 : 0,
+          y: currentSection === 1 ? 0 : -100,
+        }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="flex justify-between gap-2 flex-md-col">
           <div className="pt-20 pl-14 md-content flex-1">
             <h1 className="text-blue font-bold h1-heading lh-normal">
@@ -144,9 +188,17 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="bg-blue h-full">
+      <motion.div
+        className="section bg-blue h-full"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{
+          opacity: currentSection === 2 ? 1 : 0,
+          y: currentSection === 2 ? 0 : -100,
+        }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="flex justify-between gap-2 flex-md-col min-h-full">
           <div className="pt-8 pl-14 md-content relative flex-1">
             <h1 className="text-white font-bold h1-signup-heading lh-normal">
@@ -228,9 +280,17 @@ export default function HomePage() {
             us now!
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="h-full flex justify-between flex-col hide">
+      <motion.div
+        className="section h-full flex justify-between flex-col"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{
+          opacity: currentSection === 3 ? 1 : 0,
+          y: currentSection === 3 ? 0 : -100,
+        }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="text-center mt-8">
           <h1 className="text-blue font-bold h1-signup-heading lh-normal">
             Borderless pay{" "}
@@ -262,7 +322,7 @@ export default function HomePage() {
             }}
           ></div>
         </div>
-      </div>
-    </>
+      </motion.div>
+    </div>
   );
 }

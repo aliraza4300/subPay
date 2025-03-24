@@ -2,3 +2,12 @@ body {
   font-family: "Poppins", sans-serif !important;
   background-color: #fff;
 }
+
+body::-webkit-scrollbar {
+  width: 0px;
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+}
