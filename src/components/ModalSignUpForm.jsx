@@ -11,6 +11,7 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {} }) {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm({
     defaultValues: {
       email: "",
@@ -28,24 +29,25 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {} }) {
     setMessage("");
 
     try {
-      const response = await fetch("/api/send-email", {
+      const response = await fetch("/backend/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          to: "dev.shahroze@gmail.com",
-          subject: "Welcome to Our App!",
-          text: "Hello, welcome to our platform!",
-          html: `<p><strong>Hello</strong>, welcome to our platform!</p>
-                <p>User type: ${data.userType}</p>
-                <p>Email: ${data.email}</p>`,
+          to: data.email,
+          subject: "Welcome to Our Service!",
+          text: "Thank you for signing up. Let us know if you have questions.",
+          html: "<p>Thank you for signing up. Let us know if you have questions.</p>",
+          userType: data.userType,
         }),
       });
 
       const dataResponse = await response.json();
-      if (dataResponse.success) {
-        setMessage(
-          "Thank you for signing up! You'll receive an email shortly."
-        );
+      if (dataResponse.message) {
+        setMessage("Thank you for signing up! You'll receive an email shortly.");
+        // Clear form
+        setValue("email", "");
+        setValue("userType", "personal");
+        setValue("termsAccepted", false);
         setTimeout(() => {
           onClose();
         }, 3000); // Close the modal after 3 seconds

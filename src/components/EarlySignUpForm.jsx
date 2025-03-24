@@ -5,13 +5,12 @@ import { useForm } from "react-hook-form";
 import "../styles/early-signup-form.scss";
 import Image from "next/image";
 
-const defaultRecipient = "manoj@singtecs.com";
-
 function EarlySignUpForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm({
     defaultValues: {
       email: "",
@@ -29,14 +28,15 @@ function EarlySignUpForm() {
     setMessage("");
 
     try {
-      const response = await fetch("/api/send-email", {
+      const response = await fetch("/backend/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          to: defaultRecipient,
-          subject: "Welcome to Our App!",
-          text: "Hello, welcome to our platform!",
-          html: "<p><strong>Hello</strong>, welcome to our platform!</p>",
+          to: data.email,
+          subject: "Welcome to Our Service!",
+          text: "Thank you for signing up. Let us know if you have questions.",
+          html: "<p>Thank you for signing up. Let us know if you have questions.</p>",
+          userType: data.userType,
         }),
       });
 
@@ -46,6 +46,11 @@ function EarlySignUpForm() {
       } else {
         setMessage("Failed to send email.");
       }
+
+      // clear form
+      setValue("email", "");
+      setValue("userType", "personal");
+      setValue("termsAccepted", false);
     } catch (error) {
       setMessage("Error sending email.");
     } finally {
@@ -76,9 +81,10 @@ function EarlySignUpForm() {
               },
             })}
             aria-invalid={errors.email ? "true" : "false"}
+            disabled={loading}
           />
           {/* {errors.email && <span className="error-message">{errors.email.message}</span>} */}
-          <button type="submit" className="early-signup-form-button">
+          <button type="submit" className="early-signup-form-button" disabled={loading}>
             Sign Up – It's Free!
           </button>
         </form>
@@ -109,12 +115,6 @@ function EarlySignUpForm() {
           </label>
         </div>
         {/* {errors.termsAccepted && <span className="error-message">{errors.termsAccepted.message}</span>} */}
-
-        {/* App Download Links */}
-        <div className="early-signup-app-container">
-          <Image src="/images/download-app-on-googleplaystore.png" alt="android-app-img" id="android-app-img" width={98} height={33} />
-          <Image src="/images/download-app-on-appstore.png" alt="ios-app-img" id="ios-app-img" width={112} height={32} />
-        </div>
       </div>
     </div>
   );

@@ -28,6 +28,7 @@ import "../styles/global.scss";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 import ModalSignUpForm from "@/components/ModalSignUpForm";
+import DBConnectionCheck from "@/components/DBConnectionCheck";
 
 export default function HomePage() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -59,6 +60,8 @@ export default function HomePage() {
 
   const springConfig = { damping: 20, stiffness: 100 };
   const y = useSpring(scrollY, springConfig);
+
+  // return <DBConnectionCheck />
 
   return (
     <div className="sections-container">
