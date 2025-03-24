@@ -129,7 +129,7 @@ export default function HomePage() {
       </motion.main>
 
       <motion.div
-        className="section flex flex-col justify-between w-full h-full"
+        className="section flex flex-col justify-between w-full h-full pb-[30px]"
         initial={{ opacity: 0, y: 100, display: "none" }}
         animate={{
           opacity: currentSection === 1 ? 1 : 0,
@@ -293,26 +293,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          {/* <div className="footer flex">
-            <div className="flex-1 flex justify-center">
-              <div className="flex items-center justify-center gap-2">
-                <h2 className="text-white h2-heading">812</h2>
-                <p className="text-white">
-                  People Already <br />
-                  Signed Up
-                </p>
-              </div>
-            </div>
-            <div className="flex-1 flex justify-center ">
-              <div className="flex items-center flex-col justify-center gap-2">
-                <p className="text-white">Early access ends soon</p>
-                <div className="flex items-center gap-2">
-                  <img src="/images/ic-clock.svg" alt="" />
-                  <h3 className="h3-heading text-white">12.02.31</h3>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
       </motion.div>
 
@@ -513,15 +493,13 @@ export default function HomePage() {
               Sign Up Now
             </button>
           </div>
-          <div className="relative flex-1">
-            <Image
-              src={img05}
-              alt=""
-              className="md:w-full max-h-390 object-fill"
-              width={500}
-              height={300}
-            />
-          </div>
+          <div className="relative flex-1" />
+          <div
+            className="banner-image-container"
+            style={{
+              backgroundImage: "url('/gifs/video-5.gif')",
+            }}
+          ></div>
         </div>
 
         <div className="flex items-center justify-center w-full">
@@ -634,15 +612,13 @@ export default function HomePage() {
         transition={{ duration: 0.5 }}
       >
         <div className="flex justify-between gap-2 flex-md-col w-full pt-20">
-          <div className="relative flex-1">
-            <Image
-              src={img06}
-              alt=""
-              className="w-90 max-h-390 object-fill"
-              width={500}
-              height={300}
-            />
-          </div>
+          <div className="relative flex-1" />
+          <div
+            className="banner-image-container"
+            style={{
+              backgroundImage: "url('/gifs/video-5.gif')",
+            }}
+          ></div>
           <div className="pt-20 pl-14 md-content text-center flex-1">
             <h1 className="text-white font-bold h1-heading h1-mob-heading lh-normal lh-66">
               Limitless Global <br /> Access

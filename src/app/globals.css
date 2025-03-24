@@ -226,8 +226,8 @@ body {
   height: 100vh;
 }
 .security-box {
-  max-width: 824px;
-  width: 100%;
+  /* max-width: 824px; */
+  width: 55%;
   border-radius: 1.5rem;
   padding: 2rem;
 }
