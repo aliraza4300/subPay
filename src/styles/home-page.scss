@@ -502,6 +502,10 @@ body {
   align-items: flex-end;
   z-index: 1000;
   justify-content: flex-end;
+  width: fit-content;
+  position: absolute;
+  bottom: 8%;
+  left: -90px;
 
   .service-inverted-item {
     width: 202px;
@@ -564,7 +568,7 @@ body {
       min-height: 340px;
       width: 220px;
       background: #9ba5ff;
-      .service-item-title-container {
+      .service-inverted-item-title-container {
         #hovered-text {
           display: flex;
         }
@@ -579,10 +583,29 @@ body {
 
   @media screen and (max-width: 768px) {
     padding: 0px 20px;
-    flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    transform: scale(0.8);
-    gap: 50px;
+    transform: scale(0.6);
+    gap: 0px;
+    padding: 0px;
+    height: 400px;
+
+    .service-inverted-item:nth-child(2n + 1) {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.page-3-footer-text {
+  @media screen and (max-width: 768px) {
+    color: #fff;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    padding: 50px;
   }
 }

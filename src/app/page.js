@@ -433,7 +433,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <p className="p-signup2 text-white">
+          <p className="p-signup2 text-white page-3-footer-text">
             Sign up today and unlock exclusive benefits! Experience more value,
             Chas back, and personalized content just for you Don't miss out—join
             us now!
