@@ -194,10 +194,12 @@ body {
   text-align: center;
 }
 .ic-phoneWHand{
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.ic-phoneWHand img{
+  width: fit-content;
 }
 .pt-8{
   padding-top: 2rem;
@@ -205,8 +207,8 @@ body {
 .min-h-full{
   min-height: 100%;
 }
-.min-h-40{
-  min-height: 44px !important;
+.min-h-60{
+  min-height: 60px !important;
 }
 .white-box img{
     max-width: 100%;
@@ -283,4 +285,13 @@ body {
 }
 .show{
   display: block;
+}
+.h-min-screen{
+  min-height: 100vh;
+}
+.max-h-390{
+  max-height: 390px;
+}
+.object-fill{
+  object-fit: fill;
 }
