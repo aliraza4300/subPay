@@ -18,10 +18,12 @@ import icMoney from "../../public/images/ic-money.svg";
 import "../styles/global.scss";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
+import ModalSignUpForm from "@/components/ModalSignUpForm";
 
 export default function HomePage() {
   const [currentSection, setCurrentSection] = useState(0);
   const { scrollY } = useScroll();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const sections = [0, 1, 2, 3]; // Number of sections
 
   useEffect(() => {
@@ -48,12 +50,19 @@ export default function HomePage() {
 
   return (
     <div className="sections-container">
+      {true && (
+        <ModalSignUpForm
+          isOpen={true}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
       <motion.main
         className="section home-page-container"
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 100, display: "none" }}
         animate={{
           opacity: currentSection === 0 ? 1 : 0,
           y: currentSection === 0 ? 0 : -100,
+          display: currentSection === 0 ? "flex" : "none",
         }}
         transition={{ duration: 0.5 }}
       >
@@ -90,10 +99,11 @@ export default function HomePage() {
 
       <motion.div
         className="section flex flex-col justify-between w-full h-full"
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 100, display: "none" }}
         animate={{
           opacity: currentSection === 1 ? 1 : 0,
           y: currentSection === 1 ? 0 : -100,
+          display: currentSection === 1 ? "flex" : "none",
         }}
         transition={{ duration: 0.5 }}
       >
@@ -192,10 +202,11 @@ export default function HomePage() {
 
       <motion.div
         className="section bg-blue h-full"
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 100, display: "none" }}
         animate={{
           opacity: currentSection === 2 ? 1 : 0,
           y: currentSection === 2 ? 0 : -100,
+          display: currentSection === 2 ? "flex" : "none",
         }}
         transition={{ duration: 0.5 }}
       >
@@ -284,10 +295,11 @@ export default function HomePage() {
 
       <motion.div
         className="section h-full flex justify-between flex-col"
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 100, display: "none" }}
         animate={{
           opacity: currentSection === 3 ? 1 : 0,
           y: currentSection === 3 ? 0 : -100,
+          display: currentSection === 3 ? "flex" : "none",
         }}
         transition={{ duration: 0.5 }}
       >
