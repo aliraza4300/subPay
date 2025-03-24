@@ -70,51 +70,6 @@
           margin-top: 15px;
         }
       }
-
-      .banner-image-container {
-        display: flex;
-        flex: 1;
-        position: absolute;
-        top: 0;
-        right: 0;
-        // width: 56%;
-        // height: 56%;
-        width: 56vw;
-        height: 55vh;
-        background-size: cover;
-        background-position: center;
-        clip-path: inset(1px 1px 1px 3px);
-        mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 15%,
-            black 85%,
-            transparent 100%
-          ),
-          linear-gradient(
-            to bottom,
-            transparent 0%,
-            black 15%,
-            black 85%,
-            transparent 100%
-          );
-        -webkit-mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 15%,
-            black 85%,
-            transparent 100%
-          ),
-          linear-gradient(
-            to bottom,
-            transparent 0%,
-            black 15%,
-            black 85%,
-            transparent 100%
-          );
-        mask-composite: intersect;
-        -webkit-mask-composite: source-in;
-      }
     }
   }
 
@@ -163,15 +118,60 @@
             line-height: 15px !important;
           }
         }
-
-        .banner-image-container {
-          top: 25% !important;
-          // right: 0 !important;
-          left: 0 !important;
-          width: 100vw !important;
-          height: 35vh !important;
-        }
       }
     }
+  }
+}
+
+.banner-image-container {
+  display: flex;
+  flex: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  // width: 56%;
+  // height: 56%;
+  width: 56vw;
+  height: 55vh;
+  background-size: cover;
+  background-position: center;
+  clip-path: inset(1px 1px 1px 3px);
+  mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 15%,
+      black 85%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 15%,
+      black 85%,
+      transparent 100%
+    );
+  -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 15%,
+      black 85%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 15%,
+      black 85%,
+      transparent 100%
+    );
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+
+  @media screen and (max-width: 768px) {
+    top: 25% !important;
+    // right: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 35vh !important;
   }
 }

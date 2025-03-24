@@ -7,7 +7,8 @@ import icLock from '../../public/images/ic-lock.png';
 import icPayment from '../../public/images/ic-payment.png';
 import icSmartphone from '../../public/images/ic-smartphone.png';
 import icSmartphone01 from '../../public/images/ic-smartphone01.png';
-
+import '../styles/global.scss';
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
@@ -44,7 +45,7 @@ export default function HomePage() {
       </div>
     </main>
 
-    <div>
+    <div className="flex flex-col justify-between w-full h-full">
 
     <div className="flex justify-between gap-2 flex-md-col">
         <div className="pt-20 pl-14 md-content flex-1">
@@ -53,17 +54,19 @@ export default function HomePage() {
             <button className="btn btn-primary mt-8">Sign Up Now</button>
         </div>
         <div className="relative flex-1">
-            <div className="shadow"></div>
-            <Image 
-                src={img01} 
-                alt="" 
-                className="md:w-full"
-                width={500} // Set appropriate width
-                height={300} // Set appropriate height
-            />
+            {/* <div className="shadow"></div> */}
+            <div
+              className="banner-image-container"
+              style={{
+                backgroundImage: "url('/gifs/video-2.gif')",
+                // backgroundImage: "url('/images/globe.png')",
+              }}
+            >
+            </div>
         </div>
     </div>
 
+    <div className="flex flex-col w-full">
     <div className="flex gap-14 pl-14 md-card">
         <div className="blue-box">
             <p className="font-600 lh-14">Enhanced security</p>
@@ -132,6 +135,7 @@ export default function HomePage() {
 
             </div>
         </div>
+    </div>
     </div>
 
     </div>
