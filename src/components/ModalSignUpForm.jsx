@@ -16,7 +16,7 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {} }) {
     defaultValues: {
       email: "",
       userType: "personal",
-      termsAccepted: false,
+      // termsAccepted: false,
     },
     mode: "onTouched", // Shows validation errors when the field is touched
   });
@@ -47,7 +47,7 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {} }) {
         // Clear form
         setValue("email", "");
         setValue("userType", "personal");
-        setValue("termsAccepted", false);
+        // setValue("termsAccepted", false);
         setTimeout(() => {
           onClose();
         }, 3000); // Close the modal after 3 seconds
@@ -180,21 +180,20 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {} }) {
 
                 {/* Terms & Conditions Checkbox */}
                 <div className="modal-form-checkbox-container">
-                  <input
+                  {/* <input
                     type="checkbox"
                     {...register("termsAccepted", {
                       required: "You must accept the terms",
                     })}
                     id="modal-form-checkbox-1"
                     disabled={loading}
-                  />
+                  /> */}
                   <label htmlFor="modal-form-checkbox-1">
-                    I confirm that I have read and accept the terms and conditions
-                    and privacy policy.
+                    By signing up, you agree to our Terms of Service and Privacy Policy.
                   </label>
-                  {errors.termsAccepted && (
+                  {/* {errors.termsAccepted && (
                     <p className="error-message">{errors.termsAccepted.message}</p>
-                  )}
+                  )} */}
                 </div>
               </form>
             </div>

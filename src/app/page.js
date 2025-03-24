@@ -29,6 +29,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 import ModalSignUpForm from "@/components/ModalSignUpForm";
 import DBConnectionCheck from "@/components/DBConnectionCheck";
+import timeImage from "../../public/images/timer.svg";
 
 export default function HomePage() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -143,7 +144,7 @@ export default function HomePage() {
               Local Feature's
             </h1>
             <p className="text-blue font-bold p-paragraph lh-normal">
-              What you can do
+              what you can do
             </p>
             <button
               className="btn btn-primary mt-8 cursor-pointer"
@@ -166,12 +167,16 @@ export default function HomePage() {
 
         <div className="flex flex-col w-full">
           <div className="services-container">
-            <div className="service-item">
+            <motion.div
+              className="service-item"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
               <div className="service-item-title-container">
                 <h2>Enhanced security</h2>
-                {/* Enhanced security Service Detail */}
                 <h2 id="hovered-text">
-                  Incredibly secure, with 2-factor authentication and a multi-signature wallet.
+                  Incredibly secure, with 2-factor authentication and a
+                  multi-signature wallet.
                 </h2>
               </div>
               <div className="service-item-inner">
@@ -182,11 +187,16 @@ export default function HomePage() {
                   height="221.858px"
                 />
               </div>
-            </div>
-            <div className="service-item">
+            </motion.div>
+            <motion.div
+              className="service-item"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
               <div className="service-item-title-container">
-                <h2>Local Payment <br /> Methods</h2>
-                {/* Local Payment Methods Service Detail */}
+                <h2>
+                  Local Payment <br /> Methods
+                </h2>
                 <h2 id="hovered-text">
                   Accept local payment methods like QR codes and bank transfers.
                 </h2>
@@ -199,11 +209,16 @@ export default function HomePage() {
                   height="221.024px"
                 />
               </div>
-            </div>
-            <div className="service-item">
+            </motion.div>
+            <motion.div
+              className="service-item"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
               <div className="service-item-title-container">
-                <h2>One account <br /> Multiple currencies</h2>
-                {/* One account Multiple currencies Service Detail */}
+                <h2>
+                  One account <br /> Multiple currencies
+                </h2>
                 <h2 id="hovered-text">
                   Manage multiple currencies in one account, with real-time
                   exchange rates.
@@ -217,11 +232,14 @@ export default function HomePage() {
                   height="221.858px"
                 />
               </div>
-            </div>
-            <div className="service-item">
+            </motion.div>
+            <motion.div
+              className="service-item"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
               <div className="service-item-title-container">
                 <h2>Offline payment</h2>
-                {/* Offline payment Service Detail */}
                 <h2 id="hovered-text">
                   Pay offline with QR codes and NFC payments.
                 </h2>
@@ -234,9 +252,32 @@ export default function HomePage() {
                   height="221.858px"
                 />
               </div>
+            </motion.div>
+          </div>
+          <div className="footer-page-2">
+            <div className="footer-left">
+              <h2 className="footer-people-count">812</h2>
+              <p className="footer-people-count-text">
+                People Already <br />
+                Signed Up
+              </p>
+            </div>
+            <div className="footer-divider" />
+            <div className="footer-right">
+              <p className="footer-right-text">Early access ends soon</p>
+              <div className="footer-timer">
+                <Image
+                  src={timeImage}
+                  alt="timer"
+                  width="49.311px"
+                  height="49.311px"
+                  id="timer-image"
+                />
+                <h3 className="footer-timer-text">12.02.31</h3>
+              </div>
             </div>
           </div>
-          <div className="footer flex">
+          {/* <div className="footer flex">
             <div className="flex-1 flex justify-center">
               <div className="flex items-center justify-center gap-2">
                 <h2 className="text-white h2-heading">812</h2>
@@ -255,7 +296,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </motion.div>
 
@@ -306,46 +347,94 @@ export default function HomePage() {
               }}
             ></div>
 
-            <div className="flex gap-2 md-signup-card items-start mt-8">
-              <div className="blue-box bg-white">
-                <p className="font-600 text-blue lh-14 min-h-60">
-                  Early access to discounted forex rates
-                </p>
-                <div className="white-box bg-blue flex items-center justify-center">
+            <div className="services-inverted-container">
+              <motion.div
+                className="service-inverted-item"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <div className="service-inverted-item-title-container">
+                  <h2>Enhanced security</h2>
+                  <h2 id="hovered-text">
+                    Incredibly secure, with 2-factor authentication and a
+                    multi-signature wallet.
+                  </h2>
+                </div>
+                <div className="service-inverted-item-inner">
                   <Image
-                    src={icPercentage}
+                    src={icLock}
                     alt=""
-                    width={100} // Set appropriate width
-                    height={100} // Set appropriate height
+                    width="168.478px"
+                    height="221.858px"
                   />
                 </div>
-              </div>
-              <div className="blue-box bg-white">
-                <p className="font-600 text-blue lh-14 min-h-60">
-                  Luxury vacation
-                </p>
-                <div className="white-box bg-blue flex items-center justify-center">
+              </motion.div>
+              <motion.div
+                className="service-inverted-item"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <div className="service-inverted-item-title-container">
+                  <h2>
+                    Local Payment <br /> Methods
+                  </h2>
+                  <h2 id="hovered-text">
+                    Accept local payment methods like QR codes and bank
+                    transfers.
+                  </h2>
+                </div>
+                <div className="service-inverted-item-inner">
                   <Image
-                    src={icHolidayTourism}
+                    src={icPayment}
                     alt=""
-                    width={100} // Set appropriate width
-                    height={100} // Set appropriate height
+                    width="168.352px"
+                    height="221.024px"
                   />
                 </div>
-              </div>
-              <div className="blue-box bg-white">
-                <p className="font-600 text-blue lh-14 min-h-60">
-                  Refer your buddy and earn cashback once we are live.
-                </p>
-                <div className="white-box bg-blue flex items-center justify-center">
+              </motion.div>
+              <motion.div
+                className="service-inverted-item"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <div className="service-inverted-item-title-container">
+                  <h2>
+                    One account <br /> Multiple currencies
+                  </h2>
+                  <h2 id="hovered-text">
+                    Manage multiple currencies in one account, with real-time
+                    exchange rates.
+                  </h2>
+                </div>
+                <div className="service-inverted-item-inner">
                   <Image
-                    src={icMoney}
+                    src={icSmartphone}
                     alt=""
-                    width={100} // Set appropriate width
-                    height={100} // Set appropriate height
+                    width="165.142px"
+                    height="221.858px"
                   />
                 </div>
-              </div>
+              </motion.div>
+              <motion.div
+                className="service-inverted-item"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <div className="service-inverted-item-title-container">
+                  <h2>Offline payment</h2>
+                  <h2 id="hovered-text">
+                    Pay offline with QR codes and NFC payments.
+                  </h2>
+                </div>
+                <div className="service-inverted-item-inner">
+                  <Image
+                    src={icSmartphone01}
+                    alt=""
+                    width="169.313px"
+                    height="221.858px"
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
 
@@ -422,7 +511,7 @@ export default function HomePage() {
             <p className="text-blue font-bold fs-6 lh-normal">
               Your Money, Your Rules. No One Else Can Touch It
             </p>
-            <button 
+            <button
               className="btn btn-primary mt-8 cursor-pointer"
               onClick={() => setIsModalOpen(true)}
             >
@@ -452,12 +541,7 @@ export default function HomePage() {
               <div className="security-subbox flex gap-8 items-center justify-center flex-wrap">
                 <div className="card flex flex-col gap-2 items-center">
                   <div className="flex flex-col gap-2 items-center">
-                    <Image
-                      src={icSecurity}
-                      alt=""
-                      width={41}
-                      height={40}
-                    />
+                    <Image src={icSecurity} alt="" width={41} height={40} />
                     <h4 className="text-white font-600 fs-11">
                       security management
                     </h4>
@@ -538,12 +622,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="ic-shield">
-              <Image
-                src={icShield}
-                alt=""
-                width={486}
-                height={516}
-              />
+              <Image src={icShield} alt="" width={486} height={516} />
             </div>
           </div>
         </div>
@@ -577,7 +656,7 @@ export default function HomePage() {
               Sign Up in Seconds No Paperwork, <br />
               No Hassle, Just Instant Access!
             </p>
-            <button 
+            <button
               className="btn btn-white mt-8 cursor-pointer"
               onClick={() => setIsModalOpen(true)}
             >

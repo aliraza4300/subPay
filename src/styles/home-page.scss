@@ -1,3 +1,7 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
 .home-page-container {
   background-color: #fff;
   width: 100%;
@@ -277,6 +281,7 @@ body {
   gap: 35px;
   padding: 0px 55px;
   align-items: flex-end;
+  z-index: 1000;
 
   .service-item {
     width: 148.067px;
@@ -288,18 +293,20 @@ body {
     justify-content: space-between;
     padding: 8px;
     flex-direction: column;
-    
+    transition: min-height 0.3s ease;
+
     .service-item-title-container {
-      flex-grow: 1; // Allows the container to grow when text increases
+      flex-grow: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 4px; // Small padding to prevent text from touching edges
-      overflow-wrap: break-word; // Ensures long words break properly
+      padding: 4px;
+      overflow-wrap: break-word;
       word-wrap: break-word;
-      white-space: normal; // Ensures text wraps inside the container
+      white-space: normal;
       flex-direction: column;
+      position: relative;
 
       h2 {
         color: #fff;
@@ -307,14 +314,24 @@ body {
         font-size: 12.808px;
         font-style: normal;
         font-weight: 600;
-        line-height: 1.2; // Adjusted for better spacing
+        line-height: 1.2;
         margin: 0;
-        word-break: break-word; // Ensures long words don't overflow
+        word-break: break-word;
+      }
+
+      #hovered-text {
+        color: #fff;
+        font-size: 11px;
+        line-height: 1.4;
+        display: none;
+        align-items: center;
+        justify-content: center;
       }
     }
 
     .service-item-inner {
-      width: 130.792px;
+      // width: 130.792px;
+      width: 100%;
       height: 133.26px;
       flex-shrink: 0;
       border-radius: 27.639px;
@@ -323,5 +340,236 @@ body {
       align-items: center;
       justify-content: center;
     }
+
+    &:hover {
+      min-height: 220px;
+      .service-item-title-container {
+        #hovered-text {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0px 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    transform: scale(0.8);
+    gap: 50px;
+  }
+}
+
+.footer-page-2 {
+  width: 100%;
+  height: 181px;
+  background: #4169e1;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 22.177px 66.53px;
+  gap: 200px;
+  flex-shrink: 0;
+
+  .footer-divider {
+    width: 2.218px;
+    height: 100%;
+    background: #fff;
+  }
+
+  .footer-left {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    .footer-people-count {
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+      font-size: 80px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 14.784px; /* 18.48% */
+      margin: 0;
+    }
+
+    .footer-people-count-text {
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+      font-size: 25.04px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 30px; /* 129.438% */
+      margin: 0;
+    }
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .footer-right-text {
+      color: #fff;
+      text-align: center;
+      font-family: "Poppins", sans-serif;
+      font-size: 27.5px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 22.28px; /* 81.02% */
+      margin: 0;
+    }
+
+    .footer-timer {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+
+      .footer-timer-text {
+        color: #fff;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 50.35px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 22.28px; /* 44.251% */
+        margin: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 130px;
+    margin: 0;
+
+    .footer-left {
+      gap: 10px;
+
+      .footer-people-count {
+        font-size: 40px;
+        text-align: center;
+      }
+
+      .footer-people-count-text {
+        font-size: 15px;
+        text-align: center;
+        line-height: 20px;
+      }
+    }
+
+    .footer-right {
+      align-items: center;
+      justify-content: center;
+
+      .footer-right-text {
+        font-size: 15px;
+        text-align: center;
+        line-height: 20px;
+      }
+
+      .footer-timer {
+        #timer-image {
+          width: 20px;
+          height: 20px;
+        }
+
+        .footer-timer-text {
+          font-size: 20px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.services-inverted-container {
+  display: flex;
+  gap: 35px;
+  padding: 0px 55px;
+  align-items: flex-end;
+  z-index: 1000;
+
+  .service-inverted-item {
+    width: 148.067px;
+    min-height: 194.461px;
+    flex-shrink: 0;
+    border-radius: 29.613px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    flex-direction: column;
+    transition: min-height 0.3s ease;
+
+    .service-inverted-item-title-container {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      white-space: normal;
+      flex-direction: column;
+      position: relative;
+
+      h2 {
+        color: #4169e1;
+        font-family: "Poppins", sans-serif;
+        font-size: 12.808px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.2;
+        margin: 0;
+        word-break: break-word;
+      }
+
+      #hovered-text {
+        color: #4169e1;
+        font-size: 11px;
+        line-height: 1.4;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .service-inverted-item-inner {
+      // width: 130.792px;
+      width: 100%;
+      height: 133.26px;
+      flex-shrink: 0;
+      border-radius: 27.639px;
+      background: #4169e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:hover {
+      min-height: 220px;
+      .service-item-title-container {
+        #hovered-text {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0px 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    transform: scale(0.8);
+    gap: 50px;
   }
 }
