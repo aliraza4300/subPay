@@ -34,7 +34,22 @@ export default function HomePage() {
   const [currentSection, setCurrentSection] = useState(0);
   const { scrollY } = useScroll();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [usersCount, setUsersCount] = useState(0);
   const sections = [0, 1, 2, 3, 4, 5]; // Updated number of sections
+
+  useEffect(() => {
+    async function getUsersCount() {
+      try {
+        const res = await fetch("/backend/api/users");
+        const data = await res.json();
+        console.log(data);
+        setUsersCount(data.length || 0);
+      } catch (error) {
+        setStatus("Error connecting to DB");
+      }
+    }
+    getUsersCount();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,6 +84,7 @@ export default function HomePage() {
         <ModalSignUpForm
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
+          usersCount={usersCount}
         />
       )}
       <motion.main
@@ -101,13 +117,12 @@ export default function HomePage() {
                 className="banner-image-container"
                 style={{
                   backgroundImage: "url('/gifs/video-1.gif')",
-                  // backgroundImage: "url('/images/globe.png')",
                 }}
               ></div>
             </div>
           </div>
           <div className="bottom-container">
-            <EarlySignUpForm />
+            <EarlySignUpForm usersCount={usersCount} />
           </div>
         </div>
       </motion.main>
@@ -365,16 +380,16 @@ export default function HomePage() {
       </motion.div>
 
       <motion.div
-        className="section hide"
+        className="section flex flex-col justify-between w-full h-full"
         initial={{ opacity: 0, y: 100, display: "none" }}
         animate={{
           opacity: currentSection === 4 ? 1 : 0,
-          y: currentSection === 4 ? 0 : 100,
-          display: currentSection === 4 ? "block" : "none",
+          y: currentSection === 4 ? 0 : -100,
+          display: currentSection === 4 ? "flex" : "none",
         }}
         transition={{ duration: 0.5 }}
       >
-        <div className="flex justify-between gap-2 flex-md-col">
+        <div className="flex justify-between gap-2 flex-md-col w-full">
           <div className="pt-20 pl-14 md-content flex-1">
             <h1 className="text-blue font-bold h1-signup-heading lh-normal">
               Military <br />
@@ -395,14 +410,14 @@ export default function HomePage() {
               src={img05}
               alt=""
               className="md:w-full max-h-390 object-fill"
-              width={500} // Set appropriate width
-              height={300} // Set appropriate height
+              width={500}
+              height={300}
             />
           </div>
         </div>
 
-        <div className="flex items-center justify-center ">
-          <div className="bg-blue security-box relative">
+        <div className="flex items-center justify-center w-full">
+          <div className="bg-blue security-box relative w-full">
             <div className="left-security-box">
               <h3 className="h3-head text-white font-bold text-center">
                 Trust & security form start to finish
@@ -416,8 +431,8 @@ export default function HomePage() {
                     <Image
                       src={icSecurity}
                       alt=""
-                      width={41} // Set appropriate width
-                      height={40} // Set appropriate height
+                      width={41}
+                      height={40}
                     />
                     <h4 className="text-white font-600 fs-11">
                       security management
@@ -428,13 +443,13 @@ export default function HomePage() {
                     Morbi facilisis
                   </p>
                 </div>
-                <div className="card  flex flex-col gap-2 items-center">
+                <div className="card flex flex-col gap-2 items-center">
                   <div className="flex flex-col gap-2 items-center">
                     <Image
                       src={icSecurityProtectionShield}
                       alt=""
-                      width={41} // Set appropriate width
-                      height={40} // Set appropriate height
+                      width={41}
+                      height={40}
                     />
                     <h4 className="text-white font-600 fs-11">
                       security management
@@ -445,13 +460,13 @@ export default function HomePage() {
                     Morbi facilisis
                   </p>
                 </div>
-                <div className="card  flex flex-col gap-2 items-center">
+                <div className="card flex flex-col gap-2 items-center">
                   <div className="flex flex-col gap-2 items-center">
                     <Image
                       src={icSecurityProtectionCardPayment}
                       alt=""
-                      width={41} // Set appropriate width
-                      height={40} // Set appropriate height
+                      width={41}
+                      height={40}
                     />
                     <h4 className="text-white font-600 fs-11">
                       security management
@@ -462,13 +477,13 @@ export default function HomePage() {
                     Morbi facilisis
                   </p>
                 </div>
-                <div className="card  flex flex-col gap-2 items-center">
+                <div className="card flex flex-col gap-2 items-center">
                   <div className="flex flex-col gap-2 items-center">
                     <Image
                       src={icSecurityProtectionFingerprint}
                       alt=""
-                      width={41} // Set appropriate width
-                      height={40} // Set appropriate height
+                      width={41}
+                      height={40}
                     />
                     <h4 className="text-white font-600 fs-11">
                       security management
@@ -479,13 +494,13 @@ export default function HomePage() {
                     Morbi facilisis
                   </p>
                 </div>
-                <div className="card  flex flex-col gap-2 items-center">
+                <div className="card flex flex-col gap-2 items-center">
                   <div className="flex flex-col gap-2 items-center">
                     <Image
                       src={icSecurityProtectionHandShield}
                       alt=""
-                      width={41} // Set appropriate width
-                      height={40} // Set appropriate height
+                      width={41}
+                      height={40}
                     />
                     <h4 className="text-white font-600 fs-11">
                       security management
@@ -502,8 +517,8 @@ export default function HomePage() {
               <Image
                 src={icShield}
                 alt=""
-                width={486} // Set appropriate width
-                height={516} // Set appropriate height
+                width={486}
+                height={516}
               />
             </div>
           </div>
@@ -511,23 +526,23 @@ export default function HomePage() {
       </motion.div>
 
       <motion.div
-        className="section bg-blue h-min-screen"
+        className="section bg-blue flex flex-col justify-between w-full h-full"
         initial={{ opacity: 0, y: 100, display: "none" }}
         animate={{
           opacity: currentSection === 5 ? 1 : 0,
-          y: currentSection === 5 ? 0 : 100,
-          display: currentSection === 5 ? "block" : "none",
+          y: currentSection === 5 ? 0 : -100,
+          display: currentSection === 5 ? "flex" : "none",
         }}
         transition={{ duration: 0.5 }}
       >
-        <div className="flex justify-between gap-2 flex-md-col pt-20 mob-space">
+        <div className="flex justify-between gap-2 flex-md-col w-full pt-20">
           <div className="relative flex-1">
             <Image
               src={img06}
               alt=""
               className="w-90 max-h-390 object-fill"
-              width={500} // Set appropriate width
-              height={300} // Set appropriate height
+              width={500}
+              height={300}
             />
           </div>
           <div className="pt-20 pl-14 md-content text-center flex-1">
@@ -547,13 +562,13 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="ic-globe">
+        <div className="ic-globe w-full">
           <Image
             src={icGlobe}
             alt=""
-            className=""
-            width={500} // Set appropriate width
-            height={300} // Set appropriate height
+            className="w-full"
+            width={500}
+            height={300}
           />
         </div>
       </motion.div>

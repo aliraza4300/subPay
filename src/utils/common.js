@@ -18,3 +18,7 @@ export function fixAxiosResponse(response) {
 
   return fixedResponse;
 }
+
+export function formatNumberWithCommas(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

@@ -4,8 +4,9 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import "../styles/early-signup-form.scss";
 import Image from "next/image";
+import { formatNumberWithCommas } from "@/utils/common";
 
-function EarlySignUpForm() {
+function EarlySignUpForm({ usersCount }) {
   const {
     register,
     handleSubmit,
@@ -15,7 +16,7 @@ function EarlySignUpForm() {
     defaultValues: {
       email: "",
       userType: "personal",
-      termsAccepted: false,
+      // termsAccepted: false,
     },
     mode: "onTouched", // Shows validation errors when the field is touched
   });
@@ -50,7 +51,7 @@ function EarlySignUpForm() {
       // clear form
       setValue("email", "");
       setValue("userType", "personal");
-      setValue("termsAccepted", false);
+      // setValue("termsAccepted", false);
     } catch (error) {
       setMessage("Error sending email.");
     } finally {
@@ -64,7 +65,7 @@ function EarlySignUpForm() {
         <h2 className="early-signup-title">
           Get Early Access <br /> Free to Join, with a Special Welcome Perk
         </h2>
-        <p className="early-signup-text-1">9.981.230 People in line</p>
+        <p className="early-signup-text-1">{formatNumberWithCommas(124056 + usersCount)} People in line</p>
         <p className="early-signup-text-2">Tick-tock! Early access ends soon—Sign up now!</p>
 
         <form onSubmit={handleSubmit(onSubmit)} className="early-signup-form">
@@ -105,13 +106,13 @@ function EarlySignUpForm() {
 
         {/* Terms & Conditions Checkbox */}
         <div className="early-signup-checkbox-container">
-          <input
+          {/* <input
             type="checkbox"
             {...register("termsAccepted", { required: "You must accept the terms" })}
             id="early-signup-checkbox-1"
-          />
+          /> */}
           <label htmlFor="early-signup-checkbox-1">
-            I confirm that I have read and accept the terms and conditions and privacy policy.
+            By signing up, you agree to our Terms of Service and Privacy Policy.
           </label>
         </div>
         {/* {errors.termsAccepted && <span className="error-message">{errors.termsAccepted.message}</span>} */}
