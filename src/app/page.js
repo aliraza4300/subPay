@@ -165,53 +165,77 @@ export default function HomePage() {
         </div>
 
         <div className="flex flex-col w-full">
-          <div className="flex gap-14 pl-14 md-card">
-            <div className="blue-box">
-              <p className="font-600 lh-14">Enhanced security</p>
-              <div className="white-box flex items-center justify-center">
+          <div className="services-container">
+            <div className="service-item">
+              <div className="service-item-title-container">
+                <h2>Enhanced security</h2>
+                {/* Enhanced security Service Detail */}
+                <h2 id="hovered-text">
+                  Incredibly secure, with 2-factor authentication and a multi-signature wallet.
+                </h2>
+              </div>
+              <div className="service-item-inner">
                 <Image
                   src={icLock}
                   alt=""
-                  width={100} // Set appropriate width
-                  height={100} // Set appropriate height
+                  width="168.478px"
+                  height="221.858px"
                 />
               </div>
             </div>
-            <div className="blue-box">
-              <p className="font-600 lh-14">Local Payment Methods</p>
-              <div className="white-box flex items-center justify-center">
+            <div className="service-item">
+              <div className="service-item-title-container">
+                <h2>Local Payment <br /> Methods</h2>
+                {/* Local Payment Methods Service Detail */}
+                <h2 id="hovered-text">
+                  Accept local payment methods like QR codes and bank transfers.
+                </h2>
+              </div>
+              <div className="service-item-inner">
                 <Image
                   src={icPayment}
                   alt=""
-                  width={100} // Set appropriate width
-                  height={100} // Set appropriate height
+                  width="168.352px"
+                  height="221.024px"
                 />
               </div>
             </div>
-            <div className="blue-box">
-              <p className="font-600 lh-14">One account Multiple currencies</p>
-              <div className="white-box flex items-center justify-center">
+            <div className="service-item">
+              <div className="service-item-title-container">
+                <h2>One account <br /> Multiple currencies</h2>
+                {/* One account Multiple currencies Service Detail */}
+                <h2 id="hovered-text">
+                  Manage multiple currencies in one account, with real-time
+                  exchange rates.
+                </h2>
+              </div>
+              <div className="service-item-inner">
                 <Image
                   src={icSmartphone}
                   alt=""
-                  width={61} // Set appropriate width
-                  height={92} // Set appropriate height
+                  width="165.142px"
+                  height="221.858px"
                 />
               </div>
             </div>
-            <div className="blue-box">
-              <p className="font-600 lh-14">Offline payment</p>
-              <div className="white-box flex items-center justify-center">
+            <div className="service-item">
+              <div className="service-item-title-container">
+                <h2>Offline payment</h2>
+                {/* Offline payment Service Detail */}
+                <h2 id="hovered-text">
+                  Pay offline with QR codes and NFC payments.
+                </h2>
+              </div>
+              <div className="service-item-inner">
                 <Image
                   src={icSmartphone01}
                   alt=""
-                  width={100} // Set appropriate width
-                  height={100} // Set appropriate height
+                  width="169.313px"
+                  height="221.858px"
                 />
               </div>
             </div>
           </div>
-
           <div className="footer flex">
             <div className="flex-1 flex justify-center">
               <div className="flex items-center justify-center gap-2">
