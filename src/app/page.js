@@ -7,6 +7,8 @@ import img01 from "../../public/images/img-01.png";
 import img02 from "../../public/images/img-02.png";
 import img03 from "../../public/images/img-03.png";
 import img04 from "../../public/images/img-04.png";
+import img05 from "../../public/images/img-05.png";
+import img06 from "../../public/images/img-06.png";
 import icLock from "../../public/images/ic-lock.png";
 import icPayment from "../../public/images/ic-payment.png";
 import icSmartphone from "../../public/images/ic-smartphone.png";
@@ -15,6 +17,13 @@ import icPhoneWHand from "../../public/images/ic-phoneWHand.svg";
 import icPercentage from "../../public/images/ic-percentage.svg";
 import icHolidayTourism from "../../public/images/ic-holiday-tourism.svg";
 import icMoney from "../../public/images/ic-money.svg";
+import icSecurity from "../../public/images/ic-security.svg";
+import icSecurityProtectionShield from "../../public/images/ic-security-protection-shield.svg";
+import icSecurityProtectionCardPayment from "../../public/images/ic-security-protection-card-payment.svg";
+import icSecurityProtectionFingerprint from "../../public/images/ic-security-protection-fingerprint.svg";
+import icSecurityProtectionHandShield from "../../public/images/ic-security-protection-hand-shield.svg";
+import icShield from "../../public/images/ic-shield.png";
+import icGlobe from "../../public/images/ic-globe.png";
 import "../styles/global.scss";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -24,13 +33,16 @@ export default function HomePage() {
   const [currentSection, setCurrentSection] = useState(0);
   const { scrollY } = useScroll();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const sections = [0, 1, 2, 3]; // Number of sections
+  const sections = [0, 1, 2, 3, 4, 5]; // Updated number of sections
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      const sectionIndex = Math.round(scrollPosition / windowHeight);
+      const sectionIndex = Math.min(
+        Math.floor(scrollPosition / windowHeight),
+        sections.length - 1
+      );
 
       if (
         sectionIndex !== currentSection &&
@@ -43,7 +55,7 @@ export default function HomePage() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [currentSection]);
+  }, [currentSection, sections.length]);
 
   const springConfig = { damping: 20, stiffness: 100 };
   const y = useSpring(scrollY, springConfig);
@@ -243,7 +255,7 @@ export default function HomePage() {
               />
             </div>
           </div>
-          <div className="relative img-pt-signup flex-1 flex flex-col justify-between">
+          <div className="img-pt-signup flex-1 flex flex-col justify-between">
             <div className="relative flex-1" />
             <div
               className="banner-image-container"
@@ -308,7 +320,7 @@ export default function HomePage() {
         initial={{ opacity: 0, y: 100, display: "none" }}
         animate={{
           opacity: currentSection === 3 ? 1 : 0,
-          y: currentSection === 3 ? 0 : -100,
+          y: currentSection === 3 ? 0 : 100,
           display: currentSection === 3 ? "flex" : "none",
         }}
         transition={{ duration: 0.5 }}
@@ -346,6 +358,200 @@ export default function HomePage() {
               // backgroundImage: "url('/images/globe.png')",
             }}
           ></div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="section hide"
+        initial={{ opacity: 0, y: 100, display: "none" }}
+        animate={{
+          opacity: currentSection === 4 ? 1 : 0,
+          y: currentSection === 4 ? 0 : 100,
+          display: currentSection === 4 ? "block" : "none",
+        }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="flex justify-between gap-2 flex-md-col">
+          <div className="pt-20 pl-14 md-content flex-1">
+            <h1 className="text-blue font-bold h1-signup-heading lh-normal">
+              Military <br />
+              Grade Security
+            </h1>
+            <p className="text-blue font-bold fs-6 lh-normal">
+              Your Money, Your Rules. No One Else Can Touch It
+            </p>
+            <button 
+              className="btn btn-primary mt-8 cursor-pointer"
+              onClick={() => setIsModalOpen(true)}
+            >
+              Sign Up Now
+            </button>
+          </div>
+          <div className="relative flex-1">
+            <Image
+              src={img05}
+              alt=""
+              className="md:w-full max-h-390 object-fill"
+              width={500} // Set appropriate width
+              height={300} // Set appropriate height
+            />
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center ">
+          <div className="bg-blue security-box relative">
+            <div className="left-security-box">
+              <h3 className="h3-head text-white font-bold text-center">
+                Trust & security form start to finish
+              </h3>
+              <p className="fs-14 text-white font-600 text-center">
+                Your Money, Your Rules. No One Else Can Touch It
+              </p>
+              <div className="security-subbox flex gap-8 items-center justify-center flex-wrap">
+                <div className="card flex flex-col gap-2 items-center">
+                  <div className="flex flex-col gap-2 items-center">
+                    <Image
+                      src={icSecurity}
+                      alt=""
+                      width={41} // Set appropriate width
+                      height={40} // Set appropriate height
+                    />
+                    <h4 className="text-white font-600 fs-11">
+                      security management
+                    </h4>
+                  </div>
+                  <p className="text-white fs-7 mt-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi facilisis
+                  </p>
+                </div>
+                <div className="card  flex flex-col gap-2 items-center">
+                  <div className="flex flex-col gap-2 items-center">
+                    <Image
+                      src={icSecurityProtectionShield}
+                      alt=""
+                      width={41} // Set appropriate width
+                      height={40} // Set appropriate height
+                    />
+                    <h4 className="text-white font-600 fs-11">
+                      security management
+                    </h4>
+                  </div>
+                  <p className="text-white fs-7 mt-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi facilisis
+                  </p>
+                </div>
+                <div className="card  flex flex-col gap-2 items-center">
+                  <div className="flex flex-col gap-2 items-center">
+                    <Image
+                      src={icSecurityProtectionCardPayment}
+                      alt=""
+                      width={41} // Set appropriate width
+                      height={40} // Set appropriate height
+                    />
+                    <h4 className="text-white font-600 fs-11">
+                      security management
+                    </h4>
+                  </div>
+                  <p className="text-white fs-7 mt-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi facilisis
+                  </p>
+                </div>
+                <div className="card  flex flex-col gap-2 items-center">
+                  <div className="flex flex-col gap-2 items-center">
+                    <Image
+                      src={icSecurityProtectionFingerprint}
+                      alt=""
+                      width={41} // Set appropriate width
+                      height={40} // Set appropriate height
+                    />
+                    <h4 className="text-white font-600 fs-11">
+                      security management
+                    </h4>
+                  </div>
+                  <p className="text-white fs-7 mt-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi facilisis
+                  </p>
+                </div>
+                <div className="card  flex flex-col gap-2 items-center">
+                  <div className="flex flex-col gap-2 items-center">
+                    <Image
+                      src={icSecurityProtectionHandShield}
+                      alt=""
+                      width={41} // Set appropriate width
+                      height={40} // Set appropriate height
+                    />
+                    <h4 className="text-white font-600 fs-11">
+                      security management
+                    </h4>
+                  </div>
+                  <p className="text-white fs-7 mt-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi facilisis
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="ic-shield">
+              <Image
+                src={icShield}
+                alt=""
+                width={486} // Set appropriate width
+                height={516} // Set appropriate height
+              />
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="section bg-blue h-min-screen"
+        initial={{ opacity: 0, y: 100, display: "none" }}
+        animate={{
+          opacity: currentSection === 5 ? 1 : 0,
+          y: currentSection === 5 ? 0 : 100,
+          display: currentSection === 5 ? "block" : "none",
+        }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="flex justify-between gap-2 flex-md-col pt-20 mob-space">
+          <div className="relative flex-1">
+            <Image
+              src={img06}
+              alt=""
+              className="w-90 max-h-390 object-fill"
+              width={500} // Set appropriate width
+              height={300} // Set appropriate height
+            />
+          </div>
+          <div className="pt-20 pl-14 md-content text-center flex-1">
+            <h1 className="text-white font-bold h1-heading h1-mob-heading lh-normal lh-66">
+              Limitless Global <br /> Access
+            </h1>
+            <p className="text-white fs-6 lh-normal mt-4 mt-mob-0">
+              Sign Up in Seconds No Paperwork, <br />
+              No Hassle, Just Instant Access!
+            </p>
+            <button 
+              className="btn btn-white mt-8 cursor-pointer"
+              onClick={() => setIsModalOpen(true)}
+            >
+              Sign Up Now
+            </button>
+          </div>
+        </div>
+
+        <div className="ic-globe">
+          <Image
+            src={icGlobe}
+            alt=""
+            className=""
+            width={500} // Set appropriate width
+            height={300} // Set appropriate height
+          />
         </div>
       </motion.div>
     </div>

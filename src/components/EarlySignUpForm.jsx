@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import "../styles/early-signup-form.scss";
 import Image from "next/image";
 
+const defaultRecipient = "manoj@singtecs.com";
+
 function EarlySignUpForm() {
   const {
     register,
@@ -31,7 +33,7 @@ function EarlySignUpForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          to: "dev.shahroze@gmail.com",
+          to: defaultRecipient,
           subject: "Welcome to Our App!",
           text: "Hello, welcome to our platform!",
           html: "<p><strong>Hello</strong>, welcome to our platform!</p>",
