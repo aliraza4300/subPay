@@ -30,6 +30,7 @@ import { useEffect, useState } from "react";
 import ModalSignUpForm from "@/components/ModalSignUpForm";
 import DBConnectionCheck from "@/components/DBConnectionCheck";
 import timeImage from "../../public/images/timer.svg";
+import '../app/responsive.css';
 
 export default function HomePage() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -498,15 +499,13 @@ export default function HomePage() {
               Sign Up Now
             </button>
           </div>
-          <div className="relative flex-1">
+          <div className="relative flex-1" />
           <div
             className="banner-image-container-3"
             style={{
               backgroundImage: "url('/gifs/video-5.gif')",
             }}
           ></div>
-          </div>
-          
         </div>
         <div className="flex items-center justify-center w-full">
           <div className="bg-blue security-box relative w-full">
