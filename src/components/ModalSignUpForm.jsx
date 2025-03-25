@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import "../styles/modal-signup-form.scss";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { formatNumberWithCommas } from "@/utils/common";
 
-function ModalSignUpForm({ isOpen = false, onClose = () => {} }) {
+function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 }) {
   if (!isOpen) return null;
 
   const {
@@ -105,7 +106,7 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {} }) {
               <h1 className="modal-form-title">
                 Get Early Access — Free to Join, with a Special Welcome Perk
               </h1>
-              <p className="modal-form-text-1">9.981.230 People in line </p>
+              <p className="modal-form-text-1">{formatNumberWithCommas(124056 + usersCount)} People in line </p>
 
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="modal-form-input-container">
