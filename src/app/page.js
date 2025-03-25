@@ -161,7 +161,7 @@ export default function HomePage() {
           <div className="relative flex-1">
             {/* <div className="shadow"></div> */}
             <div
-              className="banner-image-container"
+              className="banner-image-container-4"
               style={{
                 backgroundImage: "url('/gifs/video-2.gif')",
                 // backgroundImage: "url('/images/globe.png')",
