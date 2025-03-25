@@ -56,10 +56,15 @@ export default function HomePage() {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      const sectionIndex = Math.min(
-        Math.floor(scrollPosition / windowHeight),
-        sections.length - 1
-      );
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Calculate the current section based on scroll position
+      let sectionIndex = Math.floor(scrollPosition / windowHeight);
+
+      // Special handling for the last section
+      if (scrollPosition + windowHeight >= documentHeight - 50) {
+        sectionIndex = sections.length - 1;
+      }
 
       if (
         sectionIndex !== currentSection &&
@@ -495,107 +500,108 @@ export default function HomePage() {
           </div>
           <div className="relative flex-1" />
           <div
-            className="banner-image-container"
+            className="banner-image-container-3"
             style={{
               backgroundImage: "url('/gifs/video-5.gif')",
             }}
           ></div>
         </div>
-
         <div className="flex items-center justify-center w-full">
           <div className="bg-blue security-box relative w-full">
-            <div className="left-security-box">
-              <h3 className="h3-head text-white font-bold text-center">
-                Trust & security form start to finish
-              </h3>
-              <p className="fs-14 text-white font-600 text-center">
-                Your Money, Your Rules. No One Else Can Touch It
-              </p>
-              <div className="security-subbox flex gap-8 items-center justify-center flex-wrap">
-                <div className="card flex flex-col gap-2 items-center">
-                  <div className="flex flex-col gap-2 items-center">
-                    <Image src={icSecurity} alt="" width={41} height={40} />
-                    <h4 className="text-white font-600 fs-11">
-                      security management
-                    </h4>
+            <div className="security-box-inner">
+              <div className="left-security-box">
+                <h3 className="h3-head text-white font-bold text-center">
+                  Trust & security form start to finish
+                </h3>
+                <p className="fs-14 text-white font-600 text-center security-box-text-1">
+                  Your Money, Your Rules. No One Else Can Touch It
+                </p>
+                <div className="security-subbox flex gap-8 items-center justify-center flex-wrap">
+                  <div className="card flex flex-col gap-2 items-center">
+                    <div className="flex flex-col gap-2 items-center">
+                      <Image src={icSecurity} alt="" width={41} height={40} />
+                      <h4 className="text-white font-600 fs-11">
+                        security management
+                      </h4>
+                    </div>
+                    <p className="text-white fs-7 mt-2 security-box-service-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Morbi facilisis
+                    </p>
                   </div>
-                  <p className="text-white fs-7 mt-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Morbi facilisis
-                  </p>
-                </div>
-                <div className="card flex flex-col gap-2 items-center">
-                  <div className="flex flex-col gap-2 items-center">
-                    <Image
-                      src={icSecurityProtectionShield}
-                      alt=""
-                      width={41}
-                      height={40}
-                    />
-                    <h4 className="text-white font-600 fs-11">
-                      security management
-                    </h4>
+                  <div className="card flex flex-col gap-2 items-center">
+                    <div className="flex flex-col gap-2 items-center">
+                      <Image
+                        src={icSecurityProtectionShield}
+                        alt=""
+                        width={41}
+                        height={40}
+                      />
+                      <h4 className="text-white font-600 fs-11">
+                        security management
+                      </h4>
+                    </div>
+                    <p className="text-white fs-7 mt-2 security-box-service-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Morbi facilisis
+                    </p>
                   </div>
-                  <p className="text-white fs-7 mt-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Morbi facilisis
-                  </p>
-                </div>
-                <div className="card flex flex-col gap-2 items-center">
-                  <div className="flex flex-col gap-2 items-center">
-                    <Image
-                      src={icSecurityProtectionCardPayment}
-                      alt=""
-                      width={41}
-                      height={40}
-                    />
-                    <h4 className="text-white font-600 fs-11">
-                      security management
-                    </h4>
+                  <div className="card flex flex-col gap-2 items-center">
+                    <div className="flex flex-col gap-2 items-center">
+                      <Image
+                        src={icSecurityProtectionCardPayment}
+                        alt=""
+                        width={41}
+                        height={40}
+                      />
+                      <h4 className="text-white font-600 fs-11">
+                        security management
+                      </h4>
+                    </div>
+                    <p className="text-white fs-7 mt-2 security-box-service-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Morbi facilisis
+                    </p>
                   </div>
-                  <p className="text-white fs-7 mt-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Morbi facilisis
-                  </p>
-                </div>
-                <div className="card flex flex-col gap-2 items-center">
-                  <div className="flex flex-col gap-2 items-center">
-                    <Image
-                      src={icSecurityProtectionFingerprint}
-                      alt=""
-                      width={41}
-                      height={40}
-                    />
-                    <h4 className="text-white font-600 fs-11">
-                      security management
-                    </h4>
+                  <div className="card flex flex-col gap-2 items-center">
+                    <div className="flex flex-col gap-2 items-center">
+                      <Image
+                        src={icSecurityProtectionFingerprint}
+                        alt=""
+                        width={41}
+                        height={40}
+                      />
+                      <h4 className="text-white font-600 fs-11">
+                        security management
+                      </h4>
+                    </div>
+                    <p className="text-white fs-7 mt-2 security-box-service-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Morbi facilisis
+                    </p>
                   </div>
-                  <p className="text-white fs-7 mt-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Morbi facilisis
-                  </p>
-                </div>
-                <div className="card flex flex-col gap-2 items-center">
-                  <div className="flex flex-col gap-2 items-center">
-                    <Image
-                      src={icSecurityProtectionHandShield}
-                      alt=""
-                      width={41}
-                      height={40}
-                    />
-                    <h4 className="text-white font-600 fs-11">
-                      security management
-                    </h4>
+                  <div className="card flex flex-col gap-2 items-center">
+                    <div className="flex flex-col gap-2 items-center">
+                      <Image
+                        src={icSecurityProtectionHandShield}
+                        alt=""
+                        width={41}
+                        height={40}
+                      />
+                      <h4 className="text-white font-600 fs-11">
+                        security management
+                      </h4>
+                    </div>
+                    <p className="text-white fs-7 mt-2 security-box-service-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Morbi facilisis
+                    </p>
                   </div>
-                  <p className="text-white fs-7 mt-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Morbi facilisis
-                  </p>
                 </div>
               </div>
-            </div>
-            <div className="ic-shield">
-              <Image src={icShield} alt="" width={486} height={516} />
+              <div className="ic-shield">
+                <Image src={icShield} alt="" width={486} height={516} />
+              </div>
             </div>
           </div>
         </div>
@@ -606,44 +612,36 @@ export default function HomePage() {
         initial={{ opacity: 0, y: 100, display: "none" }}
         animate={{
           opacity: currentSection === 5 ? 1 : 0,
-          y: currentSection === 5 ? 0 : -100,
+          y: currentSection === 5 ? 0 : 100,
           display: currentSection === 5 ? "flex" : "none",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100vh",
+          zIndex: currentSection === 5 ? 1 : 0,
         }}
         transition={{ duration: 0.5 }}
       >
-        <div className="flex justify-between gap-2 flex-md-col w-full pt-20">
-          <div className="relative flex-1" />
-          <div
-            className="banner-image-container"
-            style={{
-              backgroundImage: "url('/gifs/video-5.gif')",
-            }}
-          ></div>
-          <div className="pt-20 pl-14 md-content text-center flex-1">
-            <h1 className="text-white font-bold h1-heading h1-mob-heading lh-normal lh-66">
+        <div className="page-6-container">
+          <div className="page-6-left">
+            <Image src={img06} alt="" width={500} height={300} />
+          </div>
+          <div className="page-6-right">
+            <h1>
+              {" "}
               Limitless Global <br /> Access
             </h1>
-            <p className="text-white fs-6 lh-normal mt-4 mt-mob-0">
-              Sign Up in Seconds No Paperwork, <br />
-              No Hassle, Just Instant Access!
+            <p>
+              {" "}
+              Sign Up in Seconds No Paperwork, <br /> No Hassle, Just Instant
+              Access!
             </p>
-            <button
-              className="btn btn-white mt-8 cursor-pointer"
-              onClick={() => setIsModalOpen(true)}
-            >
-              Sign Up Now
-            </button>
+            <button onClick={() => setIsModalOpen(true)}>Sign Up Now</button>
+            <div className="ic-globe">
+              <Image src={icGlobe} alt="" width="579px" height="636px" />
+            </div>
           </div>
-        </div>
-
-        <div className="ic-globe w-full">
-          <Image
-            src={icGlobe}
-            alt=""
-            className="w-full"
-            width={500}
-            height={300}
-          />
         </div>
       </motion.div>
     </div>
