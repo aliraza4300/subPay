@@ -498,13 +498,15 @@ export default function HomePage() {
               Sign Up Now
             </button>
           </div>
-          <div className="relative flex-1" />
+          <div className="relative flex-1">
           <div
             className="banner-image-container-3"
             style={{
               backgroundImage: "url('/gifs/video-5.gif')",
             }}
           ></div>
+          </div>
+          
         </div>
         <div className="flex items-center justify-center w-full">
           <div className="bg-blue security-box relative w-full">
