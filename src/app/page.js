@@ -30,7 +30,7 @@ import { useEffect, useState } from "react";
 import ModalSignUpForm from "@/components/ModalSignUpForm";
 import DBConnectionCheck from "@/components/DBConnectionCheck";
 import timeImage from "../../public/images/timer.svg";
-import '../app/responsive.css';
+import "../app/responsive.css";
 
 export default function HomePage() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -485,27 +485,28 @@ export default function HomePage() {
       >
         <div className="flex justify-between gap-2 flex-md-col w-full">
           <div className="pt-20 pl-14 md-content flex-1">
-            <h1 className="text-blue font-bold h1-signup-heading lh-normal">
+            <h1 className="text-blue font-bold h1-signup-heading lh-normal page-5-heading">
               Military <br />
               Grade Security
             </h1>
-            <p className="text-blue font-bold fs-6 lh-normal">
+            <p className="text-blue font-bold fs-6 lh-normal page-5-heading-text">
               Your Money, Your Rules. No One Else Can Touch It
             </p>
             <button
-              className="btn btn-primary mt-8 cursor-pointer"
+              className="btn btn-primary mt-8 cursor-pointer page-5-signup-button"
               onClick={() => setIsModalOpen(true)}
             >
               Sign Up Now
             </button>
           </div>
-          <div className="relative flex-1" />
-          <div
-            className="banner-image-container-3"
-            style={{
-              backgroundImage: "url('/gifs/video-5.gif')",
-            }}
-          ></div>
+          <div className="relative flex-1 page-5-image-container">
+            <div
+              className="banner-image-container-3"
+              style={{
+                backgroundImage: "url('/gifs/video-5.gif')",
+              }}
+            ></div>
+          </div>
         </div>
         <div className="flex items-center justify-center w-full">
           <div className="bg-blue security-box relative w-full">
