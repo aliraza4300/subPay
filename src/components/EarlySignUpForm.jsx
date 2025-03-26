@@ -6,6 +6,8 @@ import "../styles/early-signup-form.scss";
 import Image from "next/image";
 import { formatNumberWithCommas, getUserCountry } from "@/utils/common";
 import useScreenSize from "@/app/hooks/getScreenDimensions";
+import { motion, AnimatePresence } from "framer-motion";
+import CongratulationsPopup from "./CongratulationsPopup";
 
 function EarlySignUpForm({ usersCount = 0, path = "" }) {
   const {
@@ -26,6 +28,7 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [userCountry, setUserCountry] = useState("");
+  const [showCongratulations, setShowCongratulations] = useState(false);
 
   useEffect(() => {
     setValue("userType", "personal");
@@ -57,17 +60,17 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
       });
 
       const dataResponse = await response.json();
-      if (dataResponse.success) {
-        setMessage("Email sent successfully!");
+      if (dataResponse.message) {
+        setMessage("Thank you for signing up! You'll receive an email shortly.");
+        setShowCongratulations(true);
+        // Clear form
+        setValue("email", "");
+        setValue("userType", "personal");
       } else {
-        setMessage("Failed to send email.");
+        setMessage("Failed to send email. Please try again.");
       }
-
-      // clear form
-      setValue("email", "");
-      setValue("userType", "personal");
     } catch (error) {
-      setMessage("Error sending email.");
+      setMessage("Error sending email. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -107,6 +110,9 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
             })}
             aria-invalid={errors.email ? "true" : "false"}
           />
+          {/* {errors.email && (
+            <p className="error-message">{errors.email.message}</p>
+          )} */}
           <button 
             type="submit" 
             className="early-signup-form-button" 
@@ -118,6 +124,21 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
             {loading ? "Signing up..." : path === "page_7" ? "Sign Up & Travel Worry-Free" : "Sign Up – It's Free!"}
           </button>
         </div>
+
+        {/* {message && (
+          <motion.div
+            className={
+              message.includes("Thank you")
+                ? "success-message"
+                : "error-message"
+            }
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {message}
+          </motion.div>
+        )} */}
 
         <p className="early-signup-text-3">Are you signing up for Personal or Business use?</p>
 
@@ -152,6 +173,11 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
           </label>
         </div>
       </form>
+
+      <CongratulationsPopup 
+        isOpen={showCongratulations} 
+        onClose={() => setShowCongratulations(false)} 
+      />
     </div>
   );
 }

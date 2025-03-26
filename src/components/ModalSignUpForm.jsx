@@ -4,6 +4,7 @@ import "../styles/modal-signup-form.scss";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatNumberWithCommas, getUserCountry } from "@/utils/common";
+import CongratulationsPopup from "./CongratulationsPopup";
 
 function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 }) {
   if (!isOpen) return null;
@@ -25,6 +26,7 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [userCountry, setUserCountry] = useState("");
+  const [showCongratulations, setShowCongratulations] = useState(false);
 
   useEffect(() => {
     setValue("userType", "personal");
@@ -58,6 +60,7 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
       const dataResponse = await response.json();
       if (dataResponse.message) {
         setMessage("Thank you for signing up! You'll receive an email shortly.");
+        setShowCongratulations(true);
         // Clear form
         setValue("email", "");
         setValue("userType", "personal");
@@ -204,6 +207,11 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
           </motion.div>
         </motion.div>
       )}
+
+      <CongratulationsPopup 
+        isOpen={showCongratulations} 
+        onClose={() => setShowCongratulations(false)} 
+      />
     </AnimatePresence>
   );
 }

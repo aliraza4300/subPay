@@ -32,7 +32,6 @@ import DBConnectionCheck from "@/components/DBConnectionCheck";
 import timeImage from "../../public/images/timer.svg";
 import "../app/responsive.css";
 import Timer from "@/components/Timer";
-import CongratulationsPopup from "@/components/CongratulationsPopup";
 
 export default function HomePage() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -89,7 +88,6 @@ export default function HomePage() {
 
   return (
     <div className="sections-container">
-      <CongratulationsPopup />
       {isModalOpen && (
         <ModalSignUpForm
           isOpen={isModalOpen}
