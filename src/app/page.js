@@ -31,6 +31,7 @@ import ModalSignUpForm from "@/components/ModalSignUpForm";
 import DBConnectionCheck from "@/components/DBConnectionCheck";
 import timeImage from "../../public/images/timer.svg";
 import "../app/responsive.css";
+import Timer from "@/components/Timer";
 
 export default function HomePage() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -295,7 +296,7 @@ export default function HomePage() {
                   height="49.311px"
                   id="timer-image"
                 />
-                <h3 className="footer-timer-text">12.02.31</h3>
+                <Timer />
               </div>
             </div>
           </div>
