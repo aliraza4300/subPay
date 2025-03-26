@@ -37,7 +37,7 @@ export default function HomePage() {
   const { scrollY } = useScroll();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [usersCount, setUsersCount] = useState(0);
-  const sections = [0, 1, 2, 3, 4, 5]; // Updated number of sections
+  const sections = [0, 1, 2, 3, 4, 5, 6]; // Updated number of sections
 
   useEffect(() => {
     async function getUsersCount() {
@@ -646,6 +646,34 @@ export default function HomePage() {
           </div>
         </div>
       </motion.div>
+
+      <motion.main
+        className="section home-page-container"
+        initial={{ opacity: 0, y: 100, display: "none" }}
+        animate={{
+          opacity: currentSection === 6 ? 1 : 0,
+          y: currentSection === 6 ? 0 : -100,
+          display: currentSection === 6 ? "flex" : "none",
+        }}
+        transition={{ duration: 0.5 }}
+        style={{
+          background: "#4169E1",
+        }}
+      >
+        <div className="home-page-inner">
+          <div className="page-7-text-container">
+            <h1 className="page-7-h1">
+              A New Way To <br /> Borderless pay
+            </h1>
+            <p className="page-7-p">
+              Pay like a local No forex fee, No Hassle, Buy, Smile
+            </p>
+          </div>
+          <div className="bottom-container">
+            <EarlySignUpForm usersCount={usersCount} path="page_7" />
+          </div>
+        </div>
+      </motion.main>
     </div>
   );
 }

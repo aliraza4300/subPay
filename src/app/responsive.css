@@ -540,6 +540,19 @@
     width: 150px !important;
     height: 150px !important;
   }
+
+  .page-7-text-container {
+    gap: 10px !important;
+
+    .page-7-h1 {
+      font-size: 2rem !important;
+      line-height: 2rem !important;
+    }
+
+    .page-7-p {
+      font-size: 0.8rem !important;
+    }
+  }
 }
 
 /* Early Signup Form Media Queries */
@@ -578,6 +591,19 @@
 
   .early-signup-text-3 {
     font-size: 11.218px !important;
+  }
+
+  .early-signup-form {
+    margin-top: 10px !important;
+    .early-signup-form-input {
+      font-size: 13px !important;
+    }
+    .early-signup-form-input::placeholder {
+      font-size: 13px !important;
+    }
+    .early-signup-form-button {
+      font-size: 13px !important;
+    }
   }
 
   .early-signup-radio-btns-container .early-signup-radio-item label {

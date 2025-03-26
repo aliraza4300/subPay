@@ -269,7 +269,7 @@
 }
 
 .sections-container {
-  height: 600vh; /* 6 sections * 100vh */
+  height: 700vh; /* 7 sections * 100vh */
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -667,5 +667,37 @@ body {
     p {
       text-align: center !important;
     }
+  }
+}
+
+.page-7-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+
+  .page-7-h1 {
+    color: #fdfdff;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 81px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 66px; /* 81.481% */
+    margin: 0;
+  }
+
+  .page-7-p {
+    color: #fdfdff;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin: 0;
   }
 }

@@ -5,8 +5,9 @@ import { useForm } from "react-hook-form";
 import "../styles/early-signup-form.scss";
 import Image from "next/image";
 import { formatNumberWithCommas } from "@/utils/common";
+import useScreenSize from "@/app/hooks/getScreenDimensions";
 
-function EarlySignUpForm({ usersCount }) {
+function EarlySignUpForm({ usersCount = 0, path = "" }) {
   const {
     register,
     handleSubmit,
@@ -21,6 +22,7 @@ function EarlySignUpForm({ usersCount }) {
     mode: "onTouched", // Shows validation errors when the field is touched
   });
 
+  const { width, height } = useScreenSize();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -65,10 +67,19 @@ function EarlySignUpForm({ usersCount }) {
         <h2 className="early-signup-title">
           Get Early Access <br /> Free to Join, with a Special Welcome Perk
         </h2>
-        <p className="early-signup-text-1">{formatNumberWithCommas(124056 + usersCount)} People in line</p>
+        <p 
+          className="early-signup-text-1"
+          style= {{
+            color: "page_7" ? "#A6D144" : ''
+          }}
+        >
+          {formatNumberWithCommas(124056 + usersCount)} People in line</p>
         <p className="early-signup-text-2">Tick-tock! Early access ends soon—Sign up now!</p>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="early-signup-form">
+        <form 
+          onSubmit={handleSubmit(onSubmit)} 
+          className="early-signup-form"
+        >
           {/* Email Input */}
           <input
             type="email"
@@ -85,8 +96,15 @@ function EarlySignUpForm({ usersCount }) {
             disabled={loading}
           />
           {/* {errors.email && <span className="error-message">{errors.email.message}</span>} */}
-          <button type="submit" className="early-signup-form-button" disabled={loading}>
-            Sign Up – It's Free!
+          <button 
+            type="submit" 
+            className="early-signup-form-button" 
+            disabled={loading}
+            style= {{
+              backgroundColor: "page_7" ? "#A6D144" : ''
+            }}
+          >
+            {path === "page_7" ? "Sign Up & Travel Worry-Free" : "Sign Up – It's Free!"}
           </button>
         </form>
 
@@ -94,9 +112,9 @@ function EarlySignUpForm({ usersCount }) {
 
         {/* Radio Buttons */}
         <div className="early-signup-radio-btns-container">
-          <div className="early-signup-radio-item">
+          <div className={`early-signup-radio-item ${path}`}>
             <input type="radio" {...register("userType")} id="early-signup-radio-1" value="personal" />
-            <label htmlFor="early-signup-radio-1">Personal</label>
+            <label htmlFor={`early-signup-radio-1`}>Personal</label>
           </div>
           <div className="early-signup-radio-item">
             <input type="radio" {...register("userType")} id="early-signup-radio-2" value="business" />

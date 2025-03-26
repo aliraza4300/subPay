@@ -19,14 +19,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 46px 98px;
+    padding: 30px 98px;
 
     .early-signup-title {
       color: #4169e1;
       text-align: center;
       font-family: "Poppins", sans-serif;
       // font-size: 17.16px;
-      font-size: 1.4725rem;
+      // font-size: 1.4725rem;
+      font-size: clamp(14px, 1.2vw, 24px);
       font-style: normal;
       font-weight: 700;
       line-height: normal;
@@ -37,12 +38,13 @@
       color: #38d54d;
       font-family: "Inter", sans-serif;
       // font-size: 18.315px;
-      font-size: 1.52625rem;
+      // font-size: 1.52625rem;
+      font-size: clamp(14px, 1vw, 22px);
       font-style: normal;
       font-weight: 600;
       line-height: 23.297px; /* 127.2% */
       margin: 0px;
-      margin-top: 15px;
+      margin-top: 0.5vw;
     }
 
     .early-signup-text-2 {
@@ -50,12 +52,13 @@
       text-align: center;
       font-family: "Poppins", sans-serif;
       // font-size: 9.657px;
-      font-size: 0.80475rem;
+      // font-size: 0.80475rem;
+      font-size: clamp(12px, 0.6vw, 18px);
       font-style: normal;
       font-weight: 500;
       line-height: normal;
       margin: 0px;
-      margin-top: 20px;
+      margin-top: 0.6vw;
     }
 
     .early-signup-form {
@@ -63,7 +66,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-top: 15px;
+      margin-top: 0.6vw;
 
       .early-signup-form-input {
         width: 300.778px;
@@ -76,7 +79,8 @@
         color: #222;
         font-family: "Poppins", sans-serif;
         // font-size: 10.51px;
-        font-size: 0.875625rem;
+        // font-size: 0.875625rem;
+        font-size: clamp(12px, 0.6vw, 18px);
         font-style: normal;
         font-weight: 400;
         line-height: 19.223px; /* 202.134% */
@@ -87,7 +91,8 @@
           color: #4169e1;
           font-family: "Poppins", sans-serif;
           // font-size: 10.51px;
-          font-size: 0.875625rem;
+          // font-size: 0.875625rem;
+          font-size: clamp(12px, 0.6vw, 18px);
           font-style: normal;
           font-weight: 400;
           line-height: 19.223px; /* 202.134% */
@@ -108,7 +113,7 @@
         color: #fff;
         font-family: "Poppins", sans-serif;
         // font-size: 9.51px;
-        font-size: 0.79275rem;
+        font-size: clamp(12px, 0.6vw, 18px);
         font-style: normal;
         font-weight: 600;
         line-height: 19.223px; /* 202.134% */
@@ -123,12 +128,13 @@
       color: #4169e1;
       font-family: "Poppins", sans-serif;
       // font-size: 11.218px;
-      font-size: 0.934875rem;
+      // font-size: 0.934875rem;
+      font-size: clamp(12px, 0.65vw, 20px);
       font-style: normal;
       font-weight: 600;
       line-height: 25.019px; /* 244.84% */
       margin: 0px;
-      margin-top: 15px;
+      margin-top: 0.6vw;
       // width: 100%;
     }
 
@@ -137,7 +143,8 @@
       align-items: center;
       gap: 30px;
       // width: 100%;
-      margin-top: 10px;
+      margin-top: 0.6vw;
+
       .early-signup-radio-item {
         display: flex;
         flex-direction: row;
@@ -148,7 +155,8 @@
           font-family: "Poppins", sans-serif;
           font-weight: 400; // Regular
           // font-size: 9.04px; // 9.04px to rem
-          font-size: 1.0375rem;
+          // font-size: 1.0375rem;
+          font-size: clamp(12px, 0.7vw, 22px);
           line-height: 1.5625rem; // 25px to rem
           letter-spacing: 0;
           color: #4169e1;
@@ -211,7 +219,7 @@
       display: flex;
       align-items: center;
       gap: 4px;
-      margin-top: 10px;
+      margin-top: 0.5vw;
       // width: 100%;
 
       input[type="checkbox"] {
@@ -255,7 +263,8 @@
         font-family: "Poppins", sans-serif;
         font-weight: 400; // Regular
         // font-size: 7.53px; // 9.04px to rem
-        font-size: 0.8525rem;
+        // font-size: 0.8525rem;
+        font-size: clamp(12px, 0.6vw, 18px);
         line-height: 1rem;
         letter-spacing: 0;
         color: #4169e1;
