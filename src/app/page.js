@@ -54,9 +54,15 @@ export default function HomePage() {
     getUsersCount();
   }, []);
 
+  const smoothProgress = useSpring(scrollY, {
+    stiffness: 50,
+    damping: 20,
+    restDelta: 0.001
+  });
+
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
+      const scrollPosition = smoothProgress.get();
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
@@ -79,10 +85,7 @@ export default function HomePage() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [currentSection, sections.length]);
-
-  const springConfig = { damping: 20, stiffness: 100 };
-  const y = useSpring(scrollY, springConfig);
+  }, [currentSection, sections.length, smoothProgress]);
 
   // return <DBConnectionCheck />
 
