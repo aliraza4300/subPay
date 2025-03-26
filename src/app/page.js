@@ -1,13 +1,8 @@
 "use client";
 import EarlySignUpForm from "@/components/EarlySignUpForm";
 import "../styles/home-page.scss";
-import VideoBackground from "@/components/VideoBackground";
 import Image from "next/image";
-import img01 from "../../public/images/img-01.png";
-import img02 from "../../public/images/img-02.png";
-import img03 from "../../public/images/img-03.png";
 import img04 from "../../public/images/img-04.png";
-import img05 from "../../public/images/img-05.png";
 import img06 from "../../public/images/img-06.png";
 import icLock from "../../public/images/ic-lock.png";
 import icPayment from "../../public/images/ic-payment.png";
@@ -25,10 +20,9 @@ import icSecurityProtectionHandShield from "../../public/images/ic-security-prot
 import icShield from "../../public/images/ic-shield.png";
 import icGlobe from "../../public/images/ic-globe.png";
 import "../styles/global.scss";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 import ModalSignUpForm from "@/components/ModalSignUpForm";
-import DBConnectionCheck from "@/components/DBConnectionCheck";
 import timeImage from "../../public/images/timer.svg";
 import "../app/responsive.css";
 import Timer from "@/components/Timer";
@@ -86,8 +80,6 @@ export default function HomePage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [currentSection, sections.length, smoothProgress]);
-
-  // return <DBConnectionCheck />
 
   return (
     <div className="sections-container">
@@ -150,14 +142,14 @@ export default function HomePage() {
       >
         <div className="flex justify-between gap-2 flex-md-col">
           <div className="pt-20 pl-14 md-content flex-1">
-            <h1 className="text-blue font-bold h1-heading lh-normal">
+            <h1 className="text-blue font-bold h1-heading lh-normal page-2-h1">
               Local Feature's
             </h1>
-            <p className="text-blue font-bold p-paragraph lh-normal">
+            <p className="text-blue font-bold p-paragraph lh-normal page-2-p">
               what you can do
             </p>
             <button
-              className="btn btn-primary mt-8 cursor-pointer"
+              className="btn btn-primary mt-8 cursor-pointer page-2-signup-btn"
               onClick={() => setIsModalOpen(true)}
             >
               Sign Up Now
@@ -166,7 +158,7 @@ export default function HomePage() {
           <div className="relative flex-1">
             {/* <div className="shadow"></div> */}
             <div
-              className="banner-image-container-4"
+              className="banner-image-container-4 page-2-image-container"
               style={{
                 backgroundImage: "url('/gifs/video-2.gif')",
                 // backgroundImage: "url('/images/globe.png')",
@@ -179,7 +171,6 @@ export default function HomePage() {
           <div className="services-container">
             <motion.div
               className="service-item"
-              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <div className="service-item-title-container">
@@ -204,7 +195,6 @@ export default function HomePage() {
             </motion.div>
             <motion.div
               className="service-item"
-              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <div className="service-item-title-container">
@@ -230,7 +220,6 @@ export default function HomePage() {
             </motion.div>
             <motion.div
               className="service-item"
-              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <div className="service-item-title-container">
@@ -257,7 +246,6 @@ export default function HomePage() {
             </motion.div>
             <motion.div
               className="service-item"
-              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <div className="service-item-title-container">
@@ -356,7 +344,6 @@ export default function HomePage() {
             <div className="services-inverted-container">
               <motion.div
                 className="service-inverted-item"
-                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <div className="service-inverted-item-title-container">
@@ -378,7 +365,6 @@ export default function HomePage() {
               </motion.div>
               <motion.div
                 className="service-inverted-item"
-                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <div className="service-inverted-item-title-container">
@@ -400,7 +386,6 @@ export default function HomePage() {
               </motion.div>
               <motion.div
                 className="service-inverted-item"
-                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <div className="service-inverted-item-title-container">

@@ -194,22 +194,30 @@
     flex-wrap: wrap !important;
     align-items: flex-end !important;
     justify-content: center !important;
-    gap: 20px !important;
+    gap: 30px !important;
     margin-bottom: 10px !important;
   }
 
   .services-container .service-item {
-    width: 130px !important;
-    min-height: 150px !important;
+    width: 100px !important;
+    min-height: 80px !important;
+    border-radius: 20px !important;
+  }
+
+  .services-container .service-item .service-item-title-container {
+    min-height: 30px !important;
+    height: 100% !important;
+    justify-content: flex-start !important;
   }
 
   .services-container .service-item .service-item-title-container h2 {
-    font-size: 10px !important;
+    font-size: 0.5rem !important;
   }
 
   .services-container .service-item .service-item-inner {
     width: 100% !important;
-    height: 100px !important;
+    height: 80px !important;
+    border-radius: 20px !important;
   }
 
   .services-container .service-item .service-item-inner #service-item-image {
@@ -217,8 +225,8 @@
     height: 50% !important;
   }
 
-  .services-container:hover .service-item {
-    width: 130px !important;
+  .services-container .service-item:hover {
+    width: 110px !important;
     min-height: 150px !important;
   }
 
@@ -451,14 +459,15 @@
   }
 
   .footer-page-2 .footer-left .footer-people-count-text {
-    font-size: 11px !important;
+    font-size: 0.7rem !important;
     text-align: center !important;
-    line-height: 20px !important;
+    line-height: 1rem !important;
   }
 
   .footer-page-2 .footer-right {
     align-items: center !important;
     justify-content: center !important;
+    gap: 5px !important;
   }
 
   .footer-page-2 .footer-right .footer-right-text {
@@ -603,7 +612,7 @@
 
   .page-3-signup-btn {
     font-size: 0.9rem !important;
-    padding: 3px 30px !important;
+    padding: 3px 20px !important;
     margin-top: 15px !important;
   }
 
@@ -614,6 +623,21 @@
   .page-3-p {
     font-size: 0.7rem !important;
     padding: 30px !important;
+  }
+
+  .page-2-h1 {
+    font-size: 2rem !important;
+    line-height: 2rem !important;
+  }
+
+  .page-2-p {
+    font-size: 1.3rem !important;
+  }
+
+  .page-2-signup-btn {
+    font-size: 0.9rem !important;
+    padding: 3px 20px !important;
+    margin-top: 15px !important;
   }
 }
 
