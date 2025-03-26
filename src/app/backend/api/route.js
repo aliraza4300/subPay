@@ -1,18 +1,11 @@
-import { connectToDatabase } from "../lib/mongodb";
+// import { connectToDatabase } from "../lib/mongodb";
 import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const db = await connectToDatabase();
-    const isConnected = db.connection.readyState === 1; // 1 = connected
-
-    return NextResponse.json({
-      status: isConnected ? "Connected" : "Not Connected",
-    });
+    // const db = await connectToDatabase();
+    return NextResponse.json({ status: "ok" });
   } catch (error) {
-    return NextResponse.json(
-      { status: "Error", message: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "Error connecting to DB", error }, { status: 500 });
   }
 }

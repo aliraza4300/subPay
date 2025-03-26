@@ -1,14 +1,15 @@
-import { connectToDatabase } from "../../lib/mongodb";
-import User from "../../models/User";
+// import { connectToDatabase } from "../../lib/mongodb";
+// import User from "../../models/User";
 import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    await connectToDatabase();
-
-    //use aggregate to get the count of users
-    const users = await User.aggregate([{ $count: "count" }]);
-    return NextResponse.json(users[0].count);
+    // await connectToDatabase();
+    // 
+    // //use aggregate to get the count of users
+    // const users = await User.aggregate([{ $count: "count" }]);
+    // return NextResponse.json(users[0].count);
+    return NextResponse.json(0); // Return 0 since we're not using MongoDB
   } catch (error) {
     return NextResponse.json({ message: "Error fetching users", error }, { status: 500 });
   }

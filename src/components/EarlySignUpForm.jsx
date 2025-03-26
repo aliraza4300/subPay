@@ -83,7 +83,6 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
           }}
         >
           {formatNumberWithCommas(124056 + usersCount)} People in line
-          {/* {userCountry && <span className="country-indicator"> from {userCountry}</span>} */}
         </p>
         <p className="early-signup-text-2">Tick-tock! Early access ends soon—Sign up now!</p>
 

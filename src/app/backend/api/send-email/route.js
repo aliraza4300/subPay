@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import sgMail from "@sendgrid/mail";
 import sgClient from "@sendgrid/client";
 import { fixAxiosResponse } from "@/utils/common";
-import User from "../../models/User";
-import { connectToDatabase } from "../../lib/mongodb";
+// import User from "../../models/User";
+// import { connectToDatabase } from "../../lib/mongodb";
 import { getUserCountry } from "@/utils/common";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -43,51 +43,22 @@ export async function POST(req) {
       }
     };
 
-    const sendGridResponse = await sgMail.send(msg);
-    const parsedResponse = fixAxiosResponse(sendGridResponse);
+    // Second request: Send email
+    const emailResponse = await sgMail.send(msg);
 
-    if (parsedResponse.statusCode === 200 || parsedResponse.statusCode === 201 || parsedResponse.statusCode === 202) {
-      try {
-        // Second request: Add contact to SendGrid contact list
-        const contactData = {
-          list_ids: [process.env.SENDGRID_CONTACT_LIST_ID],
-          contacts: [
-            {
-              email: to,
-              user_type: userType || "personal",
-              ip_address: ipAddress || 'Unknown',
-              country: country,
-              signup_date: new Date(),
-            }
-          ]
-        };
+    // Third operation: Save to MongoDB (commented out)
+    // await connectToDatabase();
+    // const user = new User({
+    //   email: to,
+    //   userType: userType,
+    //   country: country,
+    //   ipAddress: ipAddress
+    // });
+    // await user.save();
 
-        const contactRequest = {
-          url: `/v3/marketing/contacts`,
-          method: 'PUT',
-          body: contactData
-        };
-
-        await sgClient.request(contactRequest);
-
-        // Third operation: Save to MongoDB
-        // await connectToDatabase();
-        // const user = await User.create({ userType, email: to });
-        // console.log("User created successfully:", user);
-        return NextResponse.json({ message: "Email sent, contact added to list, and user created successfully" }, { status: 200 });
-      } catch (dbError) {
-        console.error("Database or SendGrid Contact List Error:", dbError);
-        // Still return success for email but indicate other operations failed
-        return NextResponse.json({ 
-          message: "Email sent successfully but failed to create user or add to contact list",
-          error: dbError.message 
-        }, { status: 200 });
-      }
-    } else {
-      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
-    }
+    return NextResponse.json({ success: true, message: "Email sent successfully" });
   } catch (error) {
-    console.error("SendGrid Error:", error);
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+    console.error("Error in send-email route:", error);
+    return NextResponse.json({ success: false, message: error.message }, { status: 500 });
   }
 }
