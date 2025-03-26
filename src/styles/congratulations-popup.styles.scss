@@ -19,7 +19,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // gap: 20px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
     padding: 40px;
 
@@ -31,10 +30,10 @@
       color: #fff;
       text-align: center;
       font-family: "Inter", sans-serif;
-      font-size: 38.884px;
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
       font-style: normal;
       font-weight: 700;
-      line-height: 11.437px; /* 29.412% */
+      line-height: 1.2;
       margin: 0;
     }
 
@@ -42,10 +41,10 @@
       color: #fff;
       text-align: center;
       font-family: "Inter", sans-serif;
-      font-size: 15.304px;
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
       font-style: normal;
       font-weight: 600;
-      line-height: 21.968px; /* 143.545% */
+      line-height: 1.5;
       margin: 0;
       margin-top: 20px;
     }
@@ -54,10 +53,10 @@
       color: #fff;
       text-align: center;
       font-family: "Inter", sans-serif;
-      font-size: 22.727px;
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
       font-style: normal;
       font-weight: 700;
-      line-height: 6.684px; /* 29.412% */
+      line-height: 1.2;
       margin: 0;
       margin-top: 40px;
     }
@@ -66,10 +65,10 @@
       color: #fff;
       text-align: center;
       font-family: "Inter", sans-serif;
-      font-size: 11.612px;
+      font-size: clamp(0.75rem, 1.2vw, 0.9rem);
       font-style: normal;
       font-weight: 600;
-      line-height: 16.669px; /* 143.545% */
+      line-height: 1.5;
       margin: 0;
       margin-top: 20px;
     }
@@ -78,18 +77,18 @@
       color: #bee565;
       text-align: center;
       font-family: "Inter", sans-serif;
-      font-size: 19.833px;
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
       font-style: normal;
       font-weight: 600;
-      line-height: 23.358px; /* 117.778% */
+      line-height: 1.2;
       margin: 0;
       margin-top: -25px;
     }
 
     .congratulations-popup-image {
       margin-top: -20px;
-      width: 340px;
-      height: 340px;
+      width: clamp(280px, 340px, 400px);
+      height: clamp(280px, 340px, 400px);
     }
 
     .congratulations-popup-invite-btn {
@@ -103,10 +102,10 @@
       color: #4169e1;
       text-align: center;
       font-family: "Inter", sans-serif;
-      font-size: 15.638px;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
       font-style: normal;
       font-weight: 700;
-      line-height: 37.035px; /* 236.828% */
+      line-height: 2.2;
       margin-top: 15px;
     }
   }
