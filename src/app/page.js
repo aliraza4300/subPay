@@ -318,12 +318,12 @@ export default function HomePage() {
       >
         <div className="flex justify-between gap-2 flex-md-col min-h-full">
           <div className="pt-8 pl-14 md-content relative flex-1">
-            <h1 className="text-white font-bold h1-signup-heading lh-normal">
+            <h1 className="text-white font-bold h1-signup-heading lh-normal page-3-h1">
               Sign up today <br />
               Join the waitlist
             </h1>
             <button
-              className="btn btn-white mt-8 cursor-pointer"
+              className="btn btn-white mt-8 cursor-pointer page-3-signup-btn"
               onClick={() => setIsModalOpen(true)}
             >
               Sign Up Now
@@ -347,7 +347,7 @@ export default function HomePage() {
           <div className="img-pt-signup flex-1 flex flex-col justify-between">
             <div className="relative flex-1" />
             <div
-              className="banner-image-container"
+              className="banner-image-container page-3-image-container"
               style={{
                 backgroundImage: "url('/gifs/video-4.gif')",
               }}
@@ -423,7 +423,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <p className="p-signup2 text-white page-3-footer-text">
+          <p className="p-signup2 text-white page-3-footer-text page-3-p">
             Sign up today and unlock exclusive benefits! Experience more value,
             Chas back, and personalized content just for you Don't miss out—join
             us now!

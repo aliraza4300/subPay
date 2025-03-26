@@ -595,6 +595,26 @@
       }
     }
   }
+
+  .page-3-h1 {
+    font-size: 2rem !important;
+    line-height: 2rem !important;
+  }
+
+  .page-3-signup-btn {
+    font-size: 0.9rem !important;
+    padding: 3px 30px !important;
+    margin-top: 15px !important;
+  }
+
+  .page-3-image-container {
+    top: 19% !important;
+  }
+
+  .page-3-p {
+    font-size: 0.7rem !important;
+    padding: 30px !important;
+  }
 }
 
 /* Early Signup Form Media Queries */

@@ -27,20 +27,20 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
   const { width, height } = useScreenSize();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const [userCountry, setUserCountry] = useState("");
+  // const [userCountry, setUserCountry] = useState("");
   const [showCongratulations, setShowCongratulations] = useState(false);
 
   useEffect(() => {
     setValue("userType", "personal");
   }, []);
 
-  useEffect(() => {
-    const fetchCountry = async () => {
-      const country = await getUserCountry();
-      setUserCountry(country);
-    };
-    fetchCountry();
-  }, []);
+  // useEffect(() => {
+  //   const fetchCountry = async () => {
+  //     const country = await getUserCountry();
+  //     setUserCountry(country);
+  //   };
+  //   fetchCountry();
+  // }, []);
 
   const onSubmit = async (data) => {
     setLoading(true);

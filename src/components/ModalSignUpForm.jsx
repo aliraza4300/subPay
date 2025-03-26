@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { formatNumberWithCommas, getUserCountry } from "@/utils/common";
 import CongratulationsPopup from "./CongratulationsPopup";
 
-function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 }) {
+function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0, path = "" }) {
   if (!isOpen) return null;
 
   const {
@@ -25,20 +25,20 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const [userCountry, setUserCountry] = useState("");
+  // const [userCountry, setUserCountry] = useState("");
   const [showCongratulations, setShowCongratulations] = useState(false);
 
   useEffect(() => {
     setValue("userType", "personal");
   }, []);
 
-  useEffect(() => {
-    const fetchCountry = async () => {
-      const country = await getUserCountry();
-      setUserCountry(country);
-    };
-    fetchCountry();
-  }, []);
+  // useEffect(() => {
+  //   const fetchCountry = async () => {
+  //     const country = await getUserCountry();
+  //     setUserCountry(country);
+  //   };
+  //   fetchCountry();
+  // }, []);
 
   const onSubmit = async (data) => {
     setLoading(true);
