@@ -13,18 +13,22 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
     handleSubmit,
     formState: { errors },
     setValue,
+    watch,
   } = useForm({
     defaultValues: {
       email: "",
       userType: "personal",
-      // termsAccepted: false,
     },
-    mode: "onTouched", // Shows validation errors when the field is touched
+    mode: "onTouched",
   });
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [userCountry, setUserCountry] = useState("");
+
+  useEffect(() => {
+    setValue("userType", "personal");
+  }, []);
 
   useEffect(() => {
     const fetchCountry = async () => {
@@ -57,7 +61,6 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
         // Clear form
         setValue("email", "");
         setValue("userType", "personal");
-        // setValue("termsAccepted", false);
         setTimeout(() => {
           onClose();
         }, 3000); // Close the modal after 3 seconds
@@ -101,7 +104,7 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
               duration: 0.4 
             }}
           >
-            <div className="modal-form-inner">
+            <form className="modal-form-inner" onSubmit={handleSubmit(onSubmit)}>
               <Image
                 src="/images/online-payment.png"
                 alt="online-payment-img"
@@ -119,97 +122,85 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
                 {formatNumberWithCommas(124056 + usersCount)} People in line
               </p>
 
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="modal-form-input-container">
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    disabled={loading}
-                    {...register("email", {
-                      required: "Email is required",
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Invalid email address",
-                      },
-                    })}
-                  />
-                  {errors.email && (
-                    <p className="error-message">{errors.email.message}</p>
-                  )}
-                  <motion.button
-                    type="submit"
-                    className="modal-form-button"
-                    disabled={loading}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {loading ? "Signing up..." : "Sign up Now"}
-                  </motion.button>
-                </div>
-
-                {message && (
-                  <motion.div
-                    className={
-                      message.includes("Thank you")
-                        ? "success-message"
-                        : "error-message"
-                    }
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {message}
-                  </motion.div>
+              <div className="modal-form-input-container">
+                <input
+                  type="email"
+                  className="early-signup-form-input"
+                  placeholder="Email"
+                  disabled={loading}
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                      message: "Enter a valid email address",
+                    },
+                  })}
+                />
+                {errors.email && (
+                  <p className="error-message">{errors.email.message}</p>
                 )}
+                <motion.button
+                  type="submit"
+                  className="early-signup-form-button"
+                  disabled={loading}
+                  style={{
+                    backgroundColor: "page_7" ? "#A6D144" : ''
+                  }}
+                >
+                  {loading ? "Signing up..." : path === "page_7" ? "Sign Up & Travel Worry-Free" : "Sign Up – It's Free!"}
+                </motion.button>
+              </div>
 
-                <p className="modal-form-text-3">
-                  Are you signing up for Personal or Business use?
-                </p>
+              {message && (
+                <motion.div
+                  className={
+                    message.includes("Thank you")
+                      ? "success-message"
+                      : "error-message"
+                  }
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {message}
+                </motion.div>
+              )}
 
-                {/* Radio Buttons */}
-                <div className="modal-form-radio-btns-container">
-                  <div className="modal-form-radio-item">
-                    <input
-                      type="radio"
-                      {...register("userType")}
-                      id="modal-form-radio-1"
-                      value="personal"
-                      disabled={loading}
-                      defaultChecked checked 
-                    />
-                    <label htmlFor="modal-form-radio-1">Personal</label>
-                  </div>
-                  <div className="modal-form-radio-item">
-                    <input
-                      type="radio"
-                      {...register("userType")}
-                      id="modal-form-radio-2"
-                      value="business"
-                      disabled={loading}
-                    />
-                    <label htmlFor="modal-form-radio-2">Business</label>
-                  </div>
-                </div>
+              <p className="modal-form-text-3">
+                Are you signing up for Personal or Business use?
+              </p>
 
-                {/* Terms & Conditions Checkbox */}
-                <div className="modal-form-checkbox-container">
-                  {/* <input
-                    type="checkbox"
-                    {...register("termsAccepted", {
-                      required: "You must accept the terms",
-                    })}
-                    id="modal-form-checkbox-1"
+              {/* Radio Buttons */}
+              <div className="modal-form-radio-btns-container">
+                <div className="modal-form-radio-item">
+                  <input
+                    type="radio"
+                    id="early-signup-radio-1"
+                    value="personal"
+                    {...register("userType")}
                     disabled={loading}
-                  /> */}
-                  <label htmlFor="modal-form-checkbox-1">
-                    By signing up, you agree to our Terms of Service and Privacy Policy.
-                  </label>
-                  {/* {errors.termsAccepted && (
-                    <p className="error-message">{errors.termsAccepted.message}</p>
-                  )} */}
+                  />
+                  <label htmlFor="early-signup-radio-1">Personal</label>
                 </div>
-              </form>
-            </div>
+                <div className="modal-form-radio-item">
+                  <input
+                    type="radio"
+                    id="early-signup-radio-2"
+                    value="business"
+                    {...register("userType")}
+                    disabled={loading}
+                  />
+                  <label htmlFor="early-signup-radio-2">Business</label>
+                </div>
+              </div>
+
+              {/* Terms & Conditions Checkbox */}
+              <div className="modal-form-checkbox-container">
+                <label htmlFor="modal-form-checkbox-1">
+                  By signing up, you agree to our Terms of Service and Privacy Policy.
+                </label>
+              </div>
+            </form>
           </motion.div>
         </motion.div>
       )}

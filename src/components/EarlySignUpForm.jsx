@@ -13,19 +13,23 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
     handleSubmit,
     formState: { errors },
     setValue,
+    watch,
   } = useForm({
     defaultValues: {
       email: "",
       userType: "personal",
-      // termsAccepted: false,
     },
-    mode: "onTouched", // Shows validation errors when the field is touched
+    mode: "onTouched",
   });
 
   const { width, height } = useScreenSize();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [userCountry, setUserCountry] = useState("");
+
+  useEffect(() => {
+    setValue("userType", "personal");
+  }, []);
 
   useEffect(() => {
     const fetchCountry = async () => {
@@ -62,7 +66,6 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
       // clear form
       setValue("email", "");
       setValue("userType", "personal");
-      // setValue("termsAccepted", false);
     } catch (error) {
       setMessage("Error sending email.");
     } finally {
@@ -72,7 +75,7 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
 
   return (
     <div className="early-signup-container">
-      <div className="early-signup-inner">
+      <form className="early-signup-inner" onSubmit={handleSubmit(onSubmit)}>
         <h2 className="early-signup-title">
           Get Early Access <br /> Free to Join, with a Special Welcome Perk
         </h2>
@@ -86,8 +89,7 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
         </p>
         <p className="early-signup-text-2">Tick-tock! Early access ends soon—Sign up now!</p>
 
-        <form 
-          onSubmit={handleSubmit(onSubmit)} 
+        <div 
           className="early-signup-form"
         >
           {/* Email Input */}
@@ -95,6 +97,7 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
             type="email"
             className="early-signup-form-input"
             placeholder="Email"
+            disabled={loading}
             {...register("email", {
               required: "Email is required",
               pattern: {
@@ -103,9 +106,7 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
               },
             })}
             aria-invalid={errors.email ? "true" : "false"}
-            disabled={loading}
           />
-          {/* {errors.email && <span className="error-message">{errors.email.message}</span>} */}
           <button 
             type="submit" 
             className="early-signup-form-button" 
@@ -114,37 +115,43 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
               backgroundColor: "page_7" ? "#A6D144" : ''
             }}
           >
-            {path === "page_7" ? "Sign Up & Travel Worry-Free" : "Sign Up – It's Free!"}
+            {loading ? "Signing up..." : path === "page_7" ? "Sign Up & Travel Worry-Free" : "Sign Up – It's Free!"}
           </button>
-        </form>
+        </div>
 
         <p className="early-signup-text-3">Are you signing up for Personal or Business use?</p>
 
         {/* Radio Buttons */}
         <div className="early-signup-radio-btns-container">
           <div className={`early-signup-radio-item ${path}`}>
-            <input type="radio" {...register("userType")} id="early-signup-radio-1" value="personal" defaultChecked checked />
-            <label htmlFor={`early-signup-radio-1`}>Personal</label>
+            <input 
+              type="radio" 
+              id="early-signup-radio-1" 
+              value="personal"
+              {...register("userType")}
+              disabled={loading}
+            />
+            <label htmlFor="early-signup-radio-1">Personal</label>
           </div>
           <div className="early-signup-radio-item">
-            <input type="radio" {...register("userType")} id="early-signup-radio-2" value="business" />
+            <input 
+              type="radio" 
+              id="early-signup-radio-2" 
+              value="business" 
+              {...register("userType")}
+              disabled={loading}
+            />
             <label htmlFor="early-signup-radio-2">Business</label>
           </div>
         </div>
 
         {/* Terms & Conditions Checkbox */}
         <div className="early-signup-checkbox-container">
-          {/* <input
-            type="checkbox"
-            {...register("termsAccepted", { required: "You must accept the terms" })}
-            id="early-signup-checkbox-1"
-          /> */}
           <label htmlFor="early-signup-checkbox-1">
             By signing up, you agree to our Terms of Service and Privacy Policy.
           </label>
         </div>
-        {/* {errors.termsAccepted && <span className="error-message">{errors.termsAccepted.message}</span>} */}
-      </div>
+      </form>
     </div>
   );
 }
