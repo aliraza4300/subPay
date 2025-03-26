@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sendgrid/client": "^8.1.4",
     "@sendgrid/mail": "^8.1.4",
     "framer-motion": "^12.5.0",
     "mongoose": "^8.12.2",

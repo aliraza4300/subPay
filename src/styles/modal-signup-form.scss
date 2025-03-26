@@ -58,6 +58,12 @@
     line-height: 51.71px; /* 186.332% */
     margin: 0px;
     margin-top: 10px;
+
+    .country-indicator {
+      color: #38d54d;
+      font-weight: 500;
+      margin-left: 5px;
+    }
   }
 
   .modal-form-input-container {
@@ -175,8 +181,8 @@
             height: 11.04px;
             border-radius: 50%;
             background-color: #4169e1;
-            top: 50%;
-            left: 50%;
+            top: 48%;
+            left: 52%;
             transform: translate(-50%, -50%);
           }
         }

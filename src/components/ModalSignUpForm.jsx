@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import "../styles/modal-signup-form.scss";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { formatNumberWithCommas } from "@/utils/common";
+import { formatNumberWithCommas, getUserCountry } from "@/utils/common";
 
 function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 }) {
   if (!isOpen) return null;
@@ -24,6 +24,15 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [userCountry, setUserCountry] = useState("");
+
+  useEffect(() => {
+    const fetchCountry = async () => {
+      const country = await getUserCountry();
+      setUserCountry(country);
+    };
+    fetchCountry();
+  }, []);
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -106,7 +115,10 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
               <h1 className="modal-form-title">
                 Get Early Access — Free to Join, with a Special Welcome Perk
               </h1>
-              <p className="modal-form-text-1">{formatNumberWithCommas(124056 + usersCount)} People in line </p>
+              <p className="modal-form-text-1">
+                {formatNumberWithCommas(124056 + usersCount)} People in line
+                {userCountry && <span className="country-indicator"> from {userCountry}</span>}
+              </p>
 
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="modal-form-input-container">
@@ -164,6 +176,7 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
                       id="modal-form-radio-1"
                       value="personal"
                       disabled={loading}
+                      defaultChecked checked 
                     />
                     <label htmlFor="modal-form-radio-1">Personal</label>
                   </div>

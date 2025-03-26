@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import "../styles/early-signup-form.scss";
 import Image from "next/image";
-import { formatNumberWithCommas } from "@/utils/common";
+import { formatNumberWithCommas, getUserCountry } from "@/utils/common";
 import useScreenSize from "@/app/hooks/getScreenDimensions";
 
 function EarlySignUpForm({ usersCount = 0, path = "" }) {
@@ -25,6 +25,15 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
   const { width, height } = useScreenSize();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [userCountry, setUserCountry] = useState("");
+
+  useEffect(() => {
+    const fetchCountry = async () => {
+      const country = await getUserCountry();
+      setUserCountry(country);
+    };
+    fetchCountry();
+  }, []);
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -73,7 +82,9 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
             color: "page_7" ? "#A6D144" : ''
           }}
         >
-          {formatNumberWithCommas(124056 + usersCount)} People in line</p>
+          {formatNumberWithCommas(124056 + usersCount)} People in line
+          {userCountry && <span className="country-indicator"> from {userCountry}</span>}
+        </p>
         <p className="early-signup-text-2">Tick-tock! Early access ends soon—Sign up now!</p>
 
         <form 
@@ -113,7 +124,7 @@ function EarlySignUpForm({ usersCount = 0, path = "" }) {
         {/* Radio Buttons */}
         <div className="early-signup-radio-btns-container">
           <div className={`early-signup-radio-item ${path}`}>
-            <input type="radio" {...register("userType")} id="early-signup-radio-1" value="personal" />
+            <input type="radio" {...register("userType")} id="early-signup-radio-1" value="personal" defaultChecked checked />
             <label htmlFor={`early-signup-radio-1`}>Personal</label>
           </div>
           <div className="early-signup-radio-item">

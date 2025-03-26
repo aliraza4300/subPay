@@ -22,3 +22,14 @@ export function fixAxiosResponse(response) {
 export function formatNumberWithCommas(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+export const getUserCountry = async () => {
+  try {
+    const response = await fetch('https://ipapi.co/json/');
+    const data = await response.json();
+    return data.country_name;
+  } catch (error) {
+    console.error('Error fetching country:', error);
+    return 'Unknown';
+  }
+};

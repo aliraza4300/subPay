@@ -45,6 +45,12 @@
       line-height: 23.297px; /* 127.2% */
       margin: 0px;
       margin-top: 0.5vw;
+
+      .country-indicator {
+        color: #4169e1;
+        font-weight: 500;
+        margin-left: 5px;
+      }
     }
 
     .early-signup-text-2 {
@@ -206,8 +212,8 @@
               height: 11.04px;
               border-radius: 50%;
               background-color: #38d54d;
-              top: 53%;
-              left: 50%;
+              top: 48%;
+              left: 52%;
               transform: translate(-50%, -50%);
             }
           }
