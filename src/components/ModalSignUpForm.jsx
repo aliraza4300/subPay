@@ -117,7 +117,7 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0 })
               </h1>
               <p className="modal-form-text-1">
                 {formatNumberWithCommas(124056 + usersCount)} People in line
-                {userCountry && <span className="country-indicator"> from {userCountry}</span>}
+                {/* {userCountry && <span className="country-indicator"> from {userCountry}</span>} */}
               </p>
 
               <form onSubmit={handleSubmit(onSubmit)}>

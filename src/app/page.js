@@ -279,7 +279,7 @@ export default function HomePage() {
           </div>
           <div className="footer-page-2">
             <div className="footer-left">
-              <h2 className="footer-people-count">812</h2>
+              <h2 className="footer-people-count">{usersCount}</h2>
               <p className="footer-people-count-text">
                 People Already <br />
                 Signed Up

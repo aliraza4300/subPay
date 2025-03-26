@@ -25,11 +25,27 @@ export function formatNumberWithCommas(number) {
 
 export const getUserCountry = async () => {
   try {
-    const response = await fetch('https://ipapi.co/json/');
+    // Try ip-api.com first (free, no API key needed)
+    const response = await fetch('http://ip-api.com/json/');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     const data = await response.json();
-    return data.country_name;
+    if (data.status === 'success') {
+      return data.country;
+    }
+    
+    // Fallback to ipapi.co if ip-api.com fails
+    const backupResponse = await fetch('https://ipapi.co/json/');
+    if (!backupResponse.ok) {
+      throw new Error(`HTTP error! status: ${backupResponse.status}`);
+    }
+    const backupData = await backupResponse.json();
+    return backupData.country_name;
   } catch (error) {
     console.error('Error fetching country:', error);
     return 'Unknown';
   }
 };
+
+export const signingUpCountries = ["India", "Singapore", "Thailand", "Malaysia"];
