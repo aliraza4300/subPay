@@ -26,6 +26,7 @@ import ModalSignUpForm from "@/components/ModalSignUpForm";
 import timeImage from "../../public/images/timer.svg";
 import "../app/responsive.css";
 import Timer from "@/components/Timer";
+import useScreenSize from "./hooks/getScreenDimensions";
 
 export default function HomePage() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -33,6 +34,7 @@ export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [usersCount, setUsersCount] = useState(0);
   const sections = [0, 1, 2, 3, 4, 5, 6]; // Updated number of sections
+  const { width, height } = useScreenSize();
 
   useEffect(() => {
     async function getUsersCount() {
@@ -500,105 +502,191 @@ export default function HomePage() {
             }}
           ></div>
         </div>
-        <div className="flex items-center justify-center w-full">
-          <div className="bg-blue security-box relative w-full">
+        {width > 768 ? (
+          <div className="security-box-container">
             <div className="security-box-inner">
-              <div className="left-security-box">
-                <h3 className="h3-head text-white font-bold text-center">
+              <div className="security-box-left">
+                <h1 className="security-box-h1">
                   Trust & security form start to finish
-                </h3>
-                <p className="fs-14 text-white font-600 text-center security-box-text-1">
+                </h1>
+                <p className="security-box-p">
                   Your Money, Your Rules. No One Else Can Touch It
                 </p>
-                <div className="security-subbox flex gap-8 items-center justify-center flex-wrap">
-                  <div className="card flex flex-col gap-2 items-center">
-                    <div className="flex flex-col gap-2 items-center">
-                      <Image src={icSecurity} alt="" width={41} height={40} />
-                      <h4 className="text-white font-600 fs-11">
+                <div className="security-box-items-container">
+                  <div className="security-box-item">
+                    <div className="flex flex-col items-center">
+                      <Image src={icSecurity} alt="" width={40} height={40} />
+                      <h1 className="security-box-item-title">
                         security management
-                      </h4>
+                      </h1>
                     </div>
-                    <p className="text-white fs-7 mt-2 security-box-service-text">
+                    <p className="security-box-item-description">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Morbi facilisis
                     </p>
                   </div>
-                  <div className="card flex flex-col gap-2 items-center">
-                    <div className="flex flex-col gap-2 items-center">
+                  <div className="security-box-item">
+                    <div className="flex flex-col items-center">
                       <Image
                         src={icSecurityProtectionShield}
                         alt=""
-                        width={41}
+                        width={40}
                         height={40}
                       />
-                      <h4 className="text-white font-600 fs-11">
+                      <h1 className="security-box-item-title">
                         security management
-                      </h4>
+                      </h1>
                     </div>
-                    <p className="text-white fs-7 mt-2 security-box-service-text">
+                    <p className="security-box-item-description">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Morbi facilisis
                     </p>
                   </div>
-                  <div className="card flex flex-col gap-2 items-center">
-                    <div className="flex flex-col gap-2 items-center">
+                  <div className="security-box-item">
+                    <div className="flex flex-col items-center">
                       <Image
                         src={icSecurityProtectionCardPayment}
                         alt=""
-                        width={41}
+                        width={40}
                         height={40}
                       />
-                      <h4 className="text-white font-600 fs-11">
+                      <h1 className="security-box-item-title">
                         security management
-                      </h4>
+                      </h1>
                     </div>
-                    <p className="text-white fs-7 mt-2 security-box-service-text">
+                    <p className="security-box-item-description">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Morbi facilisis
                     </p>
                   </div>
-                  <div className="card flex flex-col gap-2 items-center">
-                    <div className="flex flex-col gap-2 items-center">
+                  <div className="security-box-item">
+                    <div className="flex flex-col items-center">
                       <Image
                         src={icSecurityProtectionFingerprint}
                         alt=""
-                        width={41}
+                        width={40}
                         height={40}
                       />
-                      <h4 className="text-white font-600 fs-11">
+                      <h1 className="security-box-item-title">
                         security management
-                      </h4>
+                      </h1>
                     </div>
-                    <p className="text-white fs-7 mt-2 security-box-service-text">
+                    <p className="security-box-item-description">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Morbi facilisis
                     </p>
                   </div>
-                  <div className="card flex flex-col gap-2 items-center">
-                    <div className="flex flex-col gap-2 items-center">
+                  <div className="security-box-item">
+                    <div className="flex flex-col items-center">
                       <Image
                         src={icSecurityProtectionHandShield}
                         alt=""
-                        width={41}
+                        width={40}
                         height={40}
                       />
-                      <h4 className="text-white font-600 fs-11">
+                      <h1 className="security-box-item-title">
                         security management
-                      </h4>
+                      </h1>
                     </div>
-                    <p className="text-white fs-7 mt-2 security-box-service-text">
+                    <p className="security-box-item-description">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Morbi facilisis
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="ic-shield">
-                <Image src={icShield} alt="" width={486} height={516} />
+              <div className="security-box-right">
+                <Image
+                  src={icShield}
+                  alt=""
+                  width={500}
+                  height={500}
+                  id="security-box-right-image"
+                />
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="security-box-container-mobile">
+            <Image
+              src={icShield}
+              alt=""
+              width={150}
+              height={150}
+              id="security-box-mobile"
+            />
+            <div className="security-box-inner-mobile">
+              <h1 className="security-box-inner-mobile-h1">
+                Trust & security form <br /> start to finish
+              </h1>
+              <p className="security-box-inner-mobile-p">
+                Your Money, Your Rules. No One Else Can Touch It
+              </p>
+              <div className="security-box-inner-mobile-items">
+                <div className="security-box-inner-mobile-item">
+                  <Image src={icSecurity} alt="" width={30} height={30} />
+                  <h1 className="security-box-inner-mobile-item-title">
+                    security management
+                  </h1>
+                  <p className="security-box-inner-mobile-item-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi facilisis
+                  </p>
+                </div>
+                <div className="security-box-inner-mobile-item">
+                  <Image src={icSecurity} alt="" width={30} height={30} />
+                  <h1 className="security-box-inner-mobile-item-title">
+                    security management
+                  </h1>
+                  <p className="security-box-inner-mobile-item-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi facilisis
+                  </p>
+                </div>
+                <div className="security-box-inner-mobile-item">
+                  <Image src={icSecurity} alt="" width={30} height={30} />
+                  <h1 className="security-box-inner-mobile-item-title">
+                    security management
+                  </h1>
+                  <p className="security-box-inner-mobile-item-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi facilisis
+                  </p>
+                </div>
+                <div className="security-box-inner-mobile-item">
+                  <Image src={icSecurity} alt="" width={30} height={30} />
+                  <h1 className="security-box-inner-mobile-item-title">
+                    security management
+                  </h1>
+                  <p className="security-box-inner-mobile-item-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi facilisis
+                  </p>
+                </div>
+                <div className="security-box-inner-mobile-item">
+                  <Image src={icSecurity} alt="" width={30} height={30} />
+                  <h1 className="security-box-inner-mobile-item-title">
+                    security management
+                  </h1>
+                  <p className="security-box-inner-mobile-item-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi facilisis
+                  </p>
+                </div>
+                <div className="security-box-inner-mobile-item">
+                  <Image src={icSecurity} alt="" width={30} height={30} />
+                  <h1 className="security-box-inner-mobile-item-title">
+                    security management
+                  </h1>
+                  <p className="security-box-inner-mobile-item-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Morbi facilisis
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </motion.div>
 
       <motion.div

@@ -103,11 +103,6 @@
     max-width: 100% !important;
     width: 100% !important;
   }
-  .security-box {
-    padding-bottom: 16rem !important;
-    margin-bottom: 4rem !important;
-    max-width: 65% !important;
-  }
   .ic-shield img {
     max-width: 300px !important;
   }
@@ -360,32 +355,6 @@
     height: auto !important;
   }
 
-  .security-box {
-    padding-bottom: 16rem !important;
-    margin-bottom: 4rem !important;
-    max-width: 65% !important;
-  }
-
-  /* .security-box .security-subbox {
-    gap: 20px !important;
-  } */
-
-  .security-box .left-security-box .security-box-service-text {
-    font-size: 10px !important;
-    margin: 0px !important;
-    width: 80% !important;
-    text-align: center !important;
-  }
-
-  .security-box .left-security-box img {
-    width: 30px !important;
-    height: 30px !important;
-  }
-
-  .security-box .left-security-box .card:last-child {
-    display: none !important;
-  }
-
   /* Modal Signup Form Media Queries */
   .modal-signup-form-container {
     width: 95% !important;
@@ -516,30 +485,6 @@
     width: 80vw !important;
     height: 27vh !important;
     left: 11% !important;
-  }
-
-  .security-box-inner {
-    padding: 20px 40px !important;
-  }
-
-  .security-subbox {
-    margin-top: 20px !important;
-    gap: 20px !important;
-  }
-
-  .left-security-box {
-    max-width: 100% !important;
-    height: calc(100vh - 850px) !important;
-  }
-
-  .security-box .left-security-box h3 {
-    font-size: 14px !important;
-    text-align: center !important;
-  }
-
-  .security-box .left-security-box .security-box-text-1 {
-    margin-top: 10px !important;
-    font-size: 8px !important;
   }
 
   .ic-shield {
