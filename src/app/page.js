@@ -327,7 +327,7 @@ export default function HomePage() {
         transition={{ duration: 0.5 }}
       >
         <div className="flex justify-between gap-2 flex-md-col min-h-full">
-          <div className="pt-8 pl-14 md-content relative flex-1">
+          <div className="pt-8 pl-14 md-content relative flex-1 page-3-container">
             <h1 className="text-white font-bold h1-signup-heading lh-normal page-3-h1">
               Sign up today <br />
               Join the waitlist
@@ -339,10 +339,11 @@ export default function HomePage() {
               Sign Up Now
             </button>
 
-            <p className="p-signup text-white">
+            <p className="p-signup text-white page-3-p">
               Sign up today and unlock exclusive benefits! Experience more
-              value, Chas back, and personalized content just for you Don't miss
-              out—join us now!
+              value, Chas back, and personalized content just for you
+              <br />
+              Don't miss out—join us now!
             </p>
 
             <div className="ic-phoneWHand">
@@ -382,6 +383,10 @@ export default function HomePage() {
                     width="118.129px"
                     height="110.802px"
                     id="service-item-image"
+                    style={{
+                      width: "65%",
+                      height: "65%",
+                    }}
                   />
                 </div>
               </motion.div>
@@ -403,6 +408,10 @@ export default function HomePage() {
                     width="202px"
                     height="265.199px"
                     id="service-item-image"
+                    style={{
+                      width: "65%",
+                      height: "65%",
+                    }}
                   />
                 </div>
               </motion.div>
@@ -424,6 +433,10 @@ export default function HomePage() {
                     width="118.129px"
                     height="118.129px"
                     id="service-item-image"
+                    style={{
+                      width: "65%",
+                      height: "65%",
+                    }}
                   />
                 </div>
               </motion.div>

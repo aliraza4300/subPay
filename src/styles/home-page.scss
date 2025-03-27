@@ -477,14 +477,15 @@ body {
 .services-inverted-container {
   display: flex;
   gap: 17px;
-  padding: 30px 65px;
   align-items: flex-end;
   z-index: 1000;
   justify-content: flex-end;
+  margin-right: 60px;
+  margin-bottom: 30px;
 
   .service-inverted-item {
-    width: 202px;
-    min-height: 265.199px;
+    width: 180px;
+    min-height: 240.199px;
     flex-shrink: 0;
     border-radius: 29.613px;
     background: #fff;
@@ -510,7 +511,7 @@ body {
       h2 {
         color: #4169e1;
         font-family: "Poppins", sans-serif;
-        font-size: 15.357px;
+        font-size: 0.8rem;
         font-style: normal;
         font-weight: 600;
         line-height: 1.2;
@@ -530,7 +531,7 @@ body {
 
     .service-inverted-item-inner {
       width: 100%;
-      height: 191.959px;
+      height: 170.959px;
       flex-shrink: 0;
       border-radius: 27.639px;
       background: #4169e1;
@@ -540,8 +541,8 @@ body {
     }
 
     &:hover {
-      min-height: 340px;
-      width: 220px;
+      min-height: 280px;
+      width: 195px;
       background: #9ba5ff;
       .service-inverted-item-title-container {
         #hovered-text {
@@ -909,5 +910,21 @@ body {
   .page-2-signup-btn {
     font-size: 1rem !important;
     margin-top: 20px;
+  }
+}
+
+.page-3-container {
+  padding: 30px;
+  .page-3-h1 {
+    font-size: 2.5rem;
+  }
+
+  .page-3-signup-btn {
+    font-size: 1rem !important;
+    margin-top: 20px;
+  }
+
+  .page-3-p {
+    font-size: 1.3rem;
   }
 }
