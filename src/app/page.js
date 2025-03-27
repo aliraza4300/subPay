@@ -51,12 +51,19 @@ export default function HomePage() {
   const smoothProgress = useSpring(scrollY, {
     stiffness: 50,
     damping: 20,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   useEffect(() => {
+    let lastScrollTime = 0;
+    const scrollThreshold = 50; // ms between scroll events
+
     const handleScroll = () => {
-      const scrollPosition = smoothProgress.get();
+      const now = Date.now();
+      if (now - lastScrollTime < scrollThreshold) return;
+      lastScrollTime = now;
+
+      const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
@@ -68,18 +75,15 @@ export default function HomePage() {
         sectionIndex = sections.length - 1;
       }
 
-      if (
-        sectionIndex !== currentSection &&
-        sectionIndex >= 0 &&
-        sectionIndex < sections.length
-      ) {
+      if (sectionIndex >= 0 && sectionIndex < sections.length) {
         setCurrentSection(sectionIndex);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Add passive option for better performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [currentSection, sections.length, smoothProgress]);
+  }, [sections.length]);
 
   return (
     <div className="sections-container">
@@ -488,14 +492,13 @@ export default function HomePage() {
               Sign Up Now
             </button>
           </div>
-          <div className="relative flex-1 page-5-image-container">
-            <div
-              className="banner-image-container-3"
-              style={{
-                backgroundImage: "url('/gifs/video-5.gif')",
-              }}
-            ></div>
-          </div>
+          <div className="relative flex-1 page-5-image-container" />
+          <div
+            className="banner-image-container-3"
+            style={{
+              backgroundImage: "url('/gifs/video-5.gif')",
+            }}
+          ></div>
         </div>
         <div className="flex items-center justify-center w-full">
           <div className="bg-blue security-box relative w-full">

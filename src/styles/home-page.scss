@@ -273,7 +273,7 @@
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -304,11 +304,12 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overscroll-behavior-y: none;
 }
 
 /* Add smooth scrolling to the container */
 .sections-container {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 .services-container {
