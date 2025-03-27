@@ -147,12 +147,12 @@ export default function HomePage() {
         transition={{ duration: 0.5 }}
       >
         <div className="flex justify-between gap-2 flex-md-col">
-          <div className="pt-20 pl-14 md-content flex-1">
+          <div className="pt-20 pl-14 md-content flex-1 page-2-container">
             <h1 className="text-blue font-bold h1-heading lh-normal page-2-h1">
               Local Feature's
             </h1>
             <p className="text-blue font-bold p-paragraph lh-normal page-2-p">
-              what you can do
+              What you can do
             </p>
             <button
               className="btn btn-primary mt-8 cursor-pointer page-2-signup-btn"
@@ -196,6 +196,10 @@ export default function HomePage() {
                   width="168.478px"
                   height="221.858px"
                   id="service-item-image"
+                  style={{
+                    width: "65%",
+                    height: "65%",
+                  }}
                 />
               </div>
             </motion.div>
@@ -221,6 +225,10 @@ export default function HomePage() {
                   width="168.352px"
                   height="221.024px"
                   id="service-item-image"
+                  style={{
+                    width: "65%",
+                    height: "65%",
+                  }}
                 />
               </div>
             </motion.div>
@@ -247,6 +255,10 @@ export default function HomePage() {
                   width="165.142px"
                   height="221.858px"
                   id="service-item-image"
+                  style={{
+                    width: "50%",
+                    height: "65%",
+                  }}
                 />
               </div>
             </motion.div>
@@ -270,6 +282,10 @@ export default function HomePage() {
                   width="169.313px"
                   height="221.858px"
                   id="service-item-image"
+                  style={{
+                    width: "65%",
+                    height: "65%",
+                  }}
                 />
               </div>
             </motion.div>
