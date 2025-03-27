@@ -115,9 +115,6 @@ function ModalSignUpForm({ isOpen = false, onClose = () => {}, usersCount = 0, p
                 width={100}
                 height={100}
               />
-              <button className="modal-close-button" onClick={onClose}>
-                ×
-              </button>
               <h1 className="modal-form-title">
                 Get Early Access — Free to Join, with a Special Welcome Perk
               </h1>
